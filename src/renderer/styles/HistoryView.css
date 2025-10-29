@@ -1,0 +1,109 @@
+.history-view {
+  padding: 40px;
+}
+
+.history-header {
+  margin-bottom: 30px;
+}
+
+.history-header h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 12px;
+  max-width: 600px;
+}
+
+.search-bar .input {
+  flex: 1;
+}
+
+.recordings-list {
+  min-height: 400px;
+}
+
+.recordings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.recording-card {
+  background-color: var(--surface);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.recording-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--shadow);
+  border-color: var(--primary-color);
+}
+
+.recording-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.recording-card-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.btn-delete {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.btn-delete:hover {
+  opacity: 1;
+  background-color: var(--danger-color);
+}
+
+.recording-card-meta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.recording-notes {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.transcript-preview {
+  background-color: var(--background);
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.recording-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}

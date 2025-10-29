@@ -1,0 +1,141 @@
+.transcript-view {
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.transcript-header {
+  display: flex;
+  align-items: start;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.transcript-title {
+  flex: 1;
+}
+
+.transcript-title h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.transcript-meta {
+  display: flex;
+  gap: 12px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.transcript-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.export-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.recording-notes-section {
+  background-color: var(--surface);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.recording-notes-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.recording-notes-section p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.transcript-content {
+  background-color: var(--surface);
+  border-radius: 12px;
+  padding: 30px;
+  min-height: 400px;
+}
+
+.transcript-editor {
+  width: 100%;
+  min-height: 500px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.8;
+  resize: vertical;
+}
+
+.transcript-display {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.transcript-text p {
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.transcript-segments {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.transcript-segment {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 16px;
+  padding: 12px;
+  background-color: var(--background);
+  border-radius: 8px;
+  align-items: start;
+  transition: background-color 0.2s;
+}
+
+.transcript-segment:hover {
+  background-color: var(--surface-hover);
+}
+
+.segment-timestamp {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.segment-timestamp:hover {
+  text-decoration: underline;
+}
+
+.segment-text {
+  color: var(--text-primary);
+}
+
+.segment-confidence {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.transcript-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
