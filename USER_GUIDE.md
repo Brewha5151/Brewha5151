@@ -1,430 +1,497 @@
 # FourBolt - User Guide
 
-Welcome to FourBolt! This guide will help you get started with recording and transcribing audio.
+Welcome to FourBolt! This comprehensive guide will help you master meeting transcription, recording management, and AI-powered insights.
 
 ## Table of Contents
 1. [Getting Started](#getting-started)
-2. [Recording Your First Audio](#recording-your-first-audio)
-3. [Managing Recordings](#managing-recordings)
+2. [Recording Your First Meeting](#recording-your-first-meeting)
+3. [Managing Meetings](#managing-meetings)
 4. [Working with Transcripts](#working-with-transcripts)
-5. [Configuring Settings](#configuring-settings)
-6. [Tips and Best Practices](#tips-and-best-practices)
-7. [Troubleshooting](#troubleshooting)
+5. [Action Items Management](#action-items-management)
+6. [Analytics & Insights](#analytics--insights)
+7. [Customizing Settings](#customizing-settings)
+8. [Tips and Best Practices](#tips-and-best-practices)
+9. [Troubleshooting](#troubleshooting)
 
 ## Getting Started
 
 ### First Launch
 
-When you first launch FourBolt, you'll see a clean interface with three main sections:
-- **Record**: Create new audio recordings
-- **History**: View and manage past recordings
-- **Settings**: Configure the application
+When you first launch FourBolt, you'll see a beautiful interface with four main sections:
+- **Record**: Create new meeting recordings
+- **Recordings**: View and manage past meetings
+- **Action Items**: Track tasks across all meetings
+- **Settings**: Customize your experience
 
-### Setting Up Your API Key
+### Choosing Your Theme
 
-Before you can transcribe audio, you need to configure your OpenAI API key:
+FourBolt offers 4 professional color palettes:
+
+1. **Medium Gray** (Default) - Professional dark theme perfect for long sessions
+2. **Light** - Clean bright theme for daytime use
+3. **Midnight Blue** - Deep blue theme for focused work
+4. **Retro 90s** - Nostalgic teal and silver aesthetic
+
+**To change themes:**
+1. Click **Settings** in the sidebar
+2. Browse the Color Palette options
+3. Click any theme to apply it instantly
+
+### Setting Up Your AI Model
+
+Before transcribing, configure your AI preferences:
 
 1. Click the **Settings** icon in the sidebar
-2. In the "OpenAI API Key" field, enter your API key
-   - Get an API key from [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-   - It should start with `sk-`
-3. Click **Save Settings** at the bottom
+2. Under "AI Settings", select your preferred model:
+   - **Claude Sonnet 4.5** - Advanced reasoning and summaries
+   - **GPT-4** - Versatile and accurate transcription
+3. Enter your API key:
+   - For Claude: Get key from [https://console.anthropic.com](https://console.anthropic.com)
+   - For OpenAI: Get key from [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
+4. (Optional) Add custom vocabulary for your industry
 
-Your API key is stored securely on your local machine and is never shared.
+Your API key is stored securely on your local machine.
 
-## Recording Your First Audio
+## Recording Your First Meeting
+
+### Using Meeting Templates
+
+FourBolt provides templates to streamline common meeting types:
+
+- **General Meeting**: Standard meetings and discussions
+- **Standup**: Quick team check-ins with status updates
+- **Retrospective**: Sprint reviews and reflection sessions
+- **Sales**: Client calls and product demonstrations
 
 ### Step-by-Step Recording Process
 
 1. **Navigate to Record Tab**
-   - Click the Record icon in the sidebar
+   - Click the Record icon (microphone) in the sidebar
 
-2. **Configure Your Recording**
-   - **Title**: Enter a descriptive name (e.g., "Team Meeting - Jan 15")
-   - **Audio Device**: Select your microphone from the dropdown
-   - **Notes**: (Optional) Add context or meeting agenda
+2. **Set Up Your Meeting**
+   - **Title**: Enter a descriptive name, or leave blank for auto-generated title
+   - **Template**: (Optional) Click a template for pre-configured settings
+   - The template will customize your meeting structure
 
 3. **Start Recording**
-   - Click the **Start Recording** button
-   - The button will turn red and show "Recording"
-   - You'll see a live audio level indicator
+   - Click the large circular microphone button
+   - The button becomes a stop icon when recording
+   - Watch the live audio waveform for visual feedback
 
-4. **During Recording**
-   - **Audio Level Bar**: Monitor your input levels
-   - **Timer**: Watch the elapsed time
-   - **Pause Button**: Temporarily stop recording without ending the session
-   - **Resume Button**: Continue recording after pausing
+4. **Take Notes During Recording**
+   - Use the rich text editor below the recording controls
+   - Format your notes with:
+     - **Bold** - Press Cmd/Ctrl + B or click the B button
+     - *Italic* - Press Cmd/Ctrl + I or click the I button
+     - Bullet lists - Press Cmd/Ctrl + Shift + 8 or click the list button
+   - Notes are automatically saved
 
-5. **Stop and Save**
-   - Click **Stop & Save** when finished
-   - The audio is automatically saved
-   - Transcription begins immediately (requires API key)
+5. **See Live Transcription** (if enabled)
+   - Watch real-time transcription appear as you speak
+   - Perfect for verifying audio quality during the meeting
 
-### Audio Level Monitoring
+6. **Control Your Recording**
+   - **Pause**: Temporarily stop recording for breaks
+   - **Resume**: Continue from where you paused
+   - **Stop & Save**: End recording and process transcription
 
-The audio level bar shows your microphone input:
-- **Green/Blue**: Good levels
-- **No movement**: Microphone not working or too quiet
-- **Consistently maxed**: Too loud, may cause distortion
+### Understanding the Waveform
 
-### Pause vs. Stop
+The audio waveform visualization shows:
+- **Active bars**: Audio is being captured
+- **Low activity**: Speak louder or adjust microphone
+- **Consistent patterns**: Good, clear audio input
+- **Paused state**: Waveform dims when paused
 
-- **Pause**: Temporarily stop without ending
-  - Use for breaks, interruptions, or when you need to cough
-  - Maintains the same recording session
+## Managing Meetings
 
-- **Stop**: End the recording and save
-  - Use when completely finished
-  - Triggers transcription process
+### Browsing Your Recordings
 
-## Managing Recordings
-
-### Viewing Your History
-
-1. Click the **History** icon in the sidebar
-2. You'll see all your recordings as cards showing:
-   - Title and date
+1. Click **Recordings** in the sidebar
+2. See all meetings displayed as cards with:
+   - Meeting title and date
    - Duration
-   - Notes preview
-   - Beginning of transcript
+   - Number of participants
+   - Quick preview of content
 
-### Searching Recordings
+### Searching for Meetings
 
-The search feature looks through:
-- Recording titles
-- Notes you've added
-- Full transcript text
+The powerful search finds meetings by:
+- Title
+- Date
+- Participant names
+- Transcript content
+- Notes
 
 **To search:**
-1. Type your search term in the search bar
-2. Press Enter or click **Search**
-3. Click **Clear** to show all recordings again
+- Type keywords in the search bar at the top
+- Results update instantly
+- Click X to clear search
 
-**Search tips:**
-- Use specific keywords for better results
-- Search for dates, names, or topics
-- Searches are case-insensitive
+### Opening a Meeting
 
-### Deleting Recordings
+Click any meeting card to open the detailed view with three tabs:
 
-1. Find the recording you want to delete
-2. Click the trash icon in the top right of the card
-3. Confirm deletion
-4. Both the audio file and database entry are removed
+#### Transcript Tab
+- View the complete conversation
+- See speaker names with avatars
+- Click timestamps to navigate
+- Edit speaker names by clicking the pencil icon
+- Add bookmarks to important moments
 
-**Warning**: Deletion is permanent and cannot be undone!
+#### Summary Tab
+- Read AI-generated summary of key points
+- Review all action items from the meeting
+- See participant contributions
+- Export summary for sharing
 
-## Working with Transcripts
+#### Analytics Tab
+- View speaking time distribution charts
+- See total words spoken
+- Track number of speakers
+- Count action items created
 
-### Viewing a Transcript
+### Editing Meeting Information
 
-1. Go to the **History** tab
-2. Click on any recording card
-3. The transcript view opens with:
-   - Recording title and metadata
-   - Your notes (if any)
-   - Full transcript with timestamps
+**Change Meeting Title:**
+1. Open the meeting detail view
+2. Click the pencil icon next to the title
+3. Type new title and press Enter
 
-### Understanding Transcript Segments
+**Update Speaker Names:**
+1. In the Transcript tab, click a speaker name
+2. Type the correct name
+3. Press Enter to update all instances
 
-If your transcript shows timestamps:
-- **Time marker**: Shows when each segment was spoken
-- **Text**: The transcribed words
-- **Confidence indicator**:
-  - Checkmark = High confidence (>90%)
-  - Alert = Medium confidence (70-90%)
-  - Question = Low confidence (<70%)
+**Add Bookmarks:**
+- Click the bookmark icon on any transcript segment
+- Marks important moments for quick reference
+- View all bookmarks in the bookmarks panel
 
-### Editing Transcripts
+## Action Items Management
 
-The AI transcription is very accurate but not perfect. You can edit:
+### Accessing the Action Items Dashboard
 
-1. Click **Edit Mode**
-2. Make your corrections in the text area
-3. Click **Save Changes** when done
-4. Click **Cancel** to discard changes
+1. Click **Action Items** in the sidebar
+2. See statistics at the top:
+   - Total action items across all meetings
+   - Completed count
+   - Pending count
+   - Overdue count
 
-**When to edit:**
-- Technical terms or jargon
-- Proper nouns (names, places)
-- Specialized vocabulary
-- Formatting improvements
+### Filtering and Sorting
 
-### Exporting Transcripts
+**Filter by Status:**
+- **All** - Show everything
+- **Active** - Only uncompleted items
+- **Completed** - Only finished items
+- **Overdue** - Items past their due date
 
-Click any export button to save in different formats:
+**Sort Options:**
+- **Most Recent** - Newest items first
+- **Due Date** - Upcoming deadlines first
+- **Priority** - High priority items first
+- **Assignee** - Group by person
 
-**TXT (Plain Text)**
-- Simple text file
-- No formatting or timestamps
-- Best for: General use, copy-pasting
+### Working with Action Items
 
-**SRT (SubRip Subtitle)**
-- Includes timestamps
-- Industry-standard subtitle format
-- Best for: Video subtitles, time-coded transcripts
+**Mark Complete:**
+- Click the checkbox next to any item
+- Item moves to completed status
+- Shows with strikethrough text
 
-**VTT (WebVTT)**
-- Web video text tracks
-- Similar to SRT
-- Best for: Web videos, HTML5 players
+**View Details:**
+Each action item shows:
+- Task description
+- Assignee name
+- Due date
+- Priority level (high, medium, low)
+- Source meeting
 
-**PDF**
-- Formatted document
-- Professional appearance
-- Best for: Printing, sharing, archiving
+**From Meeting Summaries:**
+- Action items are auto-generated by AI
+- Extracted from meeting discussions
+- Appear in the Summary tab of each meeting
 
-## Configuring Settings
+### Priority Levels
 
-### Transcription Settings
+- **High** (Red badge) - Urgent, time-sensitive tasks
+- **Medium** (Yellow badge) - Standard priority
+- **Low** (Green badge) - Nice to have, flexible timing
 
-**OpenAI API Key**
-- Required for transcription
-- Stored securely on your device
-- Can be updated anytime
+## Analytics & Insights
 
-**Default Model**
-- Currently: Whisper-1 (recommended)
-- Most accurate model available
-- Optimal balance of speed and quality
+### Meeting Analytics
 
-**Default Language**
-- Set if you primarily speak one language
-- Or choose "Auto-detect" for automatic detection
-- Improves accuracy for specialized vocabulary
+Each meeting provides detailed analytics:
 
-### Audio Settings
+**Speaking Time Charts:**
+- Visual bar charts show distribution
+- Percentage of time each person spoke
+- Helps identify participation balance
 
-**Sample Rate**
-- **16 kHz**: Lower quality, smaller files, faster processing
-  - Good for: Voice-only content, limited storage
-- **44.1 kHz**: CD quality (recommended)
-  - Good for: General use, balanced quality/size
-- **48 kHz**: Higher quality, larger files
-  - Good for: Music, high-fidelity recordings
+**Word Count Statistics:**
+- Total words in meeting
+- Average per speaker
+- Speaking pace indicators
 
-**Audio Format**
-- **WAV**: Uncompressed, highest quality
-  - Larger file sizes
-  - No quality loss
-- **MP3**: Compressed, smaller files
-  - ~10x smaller than WAV
-  - Minimal quality loss
+**Participant Metrics:**
+- Number of unique speakers
+- Contributions per person
+- Speaking patterns
 
-### Appearance
+### Dashboard Statistics
 
-**Theme**
-- **Light**: Bright, clean interface
-- **Dark**: Easy on the eyes in low light
+In Settings, view overall statistics:
+- **Total Recordings** - All meetings captured
+- **Total Minutes** - Cumulative recording time
+- Track usage over time
 
-The theme changes immediately when selected.
+## Customizing Settings
 
-### Keyboard Shortcuts
+### Color Palettes
 
-**Global Shortcuts** (work even when app is in background):
-- `Cmd/Ctrl + Shift + R`: Start/stop recording
+Choose from 4 themes in the Color Palette section:
+- Preview each theme before applying
+- Changes take effect immediately
+- Your preference is saved
 
-More shortcuts coming in future updates!
+### AI Configuration
+
+**Default AI Model:**
+- Select Claude Sonnet 4.5 or GPT-4
+- Different models excel at different tasks
+- Claude: Better summaries and insights
+- GPT-4: Excellent transcription accuracy
+
+**Custom Vocabulary:**
+- Add industry-specific terms
+- Improves transcription accuracy
+- Examples:
+  - Technical terms: "kubernetes", "API", "DevOps"
+  - Company names: "Acme Corp", "Project Phoenix"
+  - Product names: "FourBolt", specific model numbers
+
+**How to add:**
+1. In Settings, find Custom Vocabulary
+2. Type terms separated by commas
+3. Save settings
+
+### Audio & Integration
+
+**Microphone Selection:**
+- Choose your preferred input device
+- Test different microphones
+- Switch based on environment
+
+**Calendar Integration:**
+- Enable to auto-populate meeting titles
+- Syncs with your calendar events
+- Automatic participant detection
 
 ## Tips and Best Practices
 
-### For Better Audio Quality
+### For Best Recording Quality
 
-1. **Environment**
-   - Record in a quiet space
-   - Close windows to reduce outside noise
-   - Turn off fans, AC, or noisy equipment
+1. **Environment Setup:**
+   - Choose a quiet location
+   - Minimize background noise
+   - Close windows and doors
+   - Turn off fans or AC during recording
 
-2. **Microphone Placement**
-   - Position 6-12 inches from your mouth
-   - Avoid touching or moving the microphone while recording
-   - Use a pop filter if available
+2. **Microphone Positioning:**
+   - Place 6-12 inches from your mouth
+   - Use external microphone when possible
+   - Test audio levels before important meetings
 
-3. **Speaking Technique**
-   - Speak clearly and at a moderate pace
-   - Don't rush or mumble
-   - Pause between thoughts or sentences
+3. **Recording Techniques:**
+   - Speak clearly at moderate pace
+   - One person speaks at a time
+   - State names when changing speakers
+   - Use pause for breaks, not stop
 
-### For Better Transcription
+### For Better Transcriptions
 
-1. **Audio Quality Matters**
-   - Clear audio = accurate transcription
-   - Reduce background noise
-   - Use a good microphone
+1. **Prepare Custom Vocabulary:**
+   - Add specialized terms before recording
+   - Include product names
+   - Add frequently used acronyms
 
-2. **Language Settings**
-   - Set the correct language in Settings
-   - Consistent accent/dialect helps
-   - Technical terms may need editing
+2. **During Recording:**
+   - Monitor the waveform for consistent input
+   - Check live transcription accuracy
+   - Adjust microphone if needed
 
-3. **File Size Considerations**
-   - Whisper API has a 25MB limit
-   - Long recordings may need splitting
-   - Use lower sample rates for very long sessions
+3. **After Recording:**
+   - Review and correct speaker names
+   - Edit any misheard words
+   - Add bookmarks to key moments
 
-### Organizing Your Recordings
+### Organizing Meetings
 
-1. **Use Descriptive Titles**
-   - Bad: "Recording 1"
-   - Good: "Product Planning Meeting - Q1 2024"
+1. **Use Descriptive Titles:**
+   - Include date and topic
+   - Example: "Q4 Planning - Product Roadmap"
+   - Makes searching easier
 
-2. **Add Detailed Notes**
-   - Meeting attendees
-   - Key topics discussed
-   - Action items or decisions
+2. **Choose Appropriate Templates:**
+   - Templates optimize for meeting type
+   - Faster setup
+   - Consistent structure
 
-3. **Regular Cleanup**
-   - Delete old, unnecessary recordings
-   - Export important transcripts
-   - Keep your library organized
+3. **Add Contextual Notes:**
+   - Include meeting agenda
+   - Note key decisions
+   - Reference related meetings
+
+### Managing Action Items
+
+1. **Review After Each Meeting:**
+   - Check AI-generated action items
+   - Verify assignees are correct
+   - Confirm due dates
+
+2. **Set Realistic Deadlines:**
+   - Consider dependencies
+   - Account for other commitments
+   - Build in buffer time
+
+3. **Regular Check-ins:**
+   - Visit Action Items dashboard daily
+   - Update status as you work
+   - Communicate delays early
 
 ## Troubleshooting
 
-### "No audio devices found"
+### Microphone Not Working
 
 **macOS:**
-1. Go to System Preferences → Security & Privacy → Privacy
-2. Select "Microphone" in the left sidebar
+1. System Preferences → Security & Privacy → Privacy
+2. Select **Microphone** from left sidebar
 3. Ensure FourBolt has a checkmark
+4. Restart FourBolt
 
 **Windows:**
-1. Go to Settings → Privacy → Microphone
-2. Ensure "Allow apps to access your microphone" is ON
-3. Scroll down and enable for desktop apps
+1. Settings → Privacy → Microphone
+2. Enable "Allow apps to access your microphone"
+3. Ensure FourBolt is enabled
+4. Restart FourBolt
 
-**Linux:**
-1. Check your audio input settings
-2. Ensure PulseAudio or ALSA is configured correctly
+**General Fixes:**
+- Check microphone is plugged in
+- Try a different USB port
+- Test microphone in other apps
+- Restart your computer
 
-### "API key not set" error
+### No Audio Waveform
 
-1. Go to Settings
-2. Enter your OpenAI API key
-3. Click Save Settings
-4. Try transcribing again
+- Grant microphone permissions (see above)
+- Select correct input device in Settings
+- Increase system microphone volume
+- Try a different microphone
 
-If the error persists:
-- Verify your API key is correct
-- Check if you have an active OpenAI account
-- Ensure your API key has access to the Whisper API
+### Transcription Not Starting
 
-### "Transcription failed" error
+1. **Check API Key:**
+   - Go to Settings
+   - Verify API key is entered
+   - Confirm key is valid (not expired)
 
-**Check Internet Connection:**
-- Transcription requires internet
-- Verify you can access openai.com
+2. **Internet Connection:**
+   - Transcription requires internet
+   - Check your connection
+   - Try again when online
 
-**Verify API Key:**
-- Ensure it's entered correctly
-- Check for extra spaces
-- Verify it starts with `sk-`
+3. **File Size:**
+   - Very large files may take time
+   - Check for processing indicator
+   - Wait a few minutes for completion
 
-**Check API Usage:**
-- Log in to OpenAI Platform
-- Check if you have available credits
-- Review any usage limits
+### Poor Transcription Accuracy
 
-**File Size Issues:**
-- Audio must be under 25MB
-- Split longer recordings
-- Use lower sample rates
+1. **Improve Audio Quality:**
+   - Use better microphone
+   - Reduce background noise
+   - Speak more clearly
 
-### Audio Level Too Low
+2. **Add Custom Vocabulary:**
+   - Include technical terms
+   - Add names and acronyms
+   - Spell out unusual words
 
-1. **System Volume:**
-   - Check system input volume settings
-   - Increase microphone gain
+3. **Try Different AI Model:**
+   - Switch between Claude and GPT-4
+   - Different models may work better
+   - Test with sample recording
 
-2. **Physical Distance:**
-   - Move microphone closer
-   - Typically 6-12 inches is optimal
+### Application Won't Start
 
-3. **Microphone Settings:**
-   - Try a different audio device
-   - Check if microphone needs power (phantom power for XLR mics)
+1. **Check Node.js:**
+   - Ensure Node.js 18+ is installed
+   - Run: `node --version`
+   - Reinstall if needed
 
-### App Won't Start or Crashes
+2. **Reinstall Dependencies:**
+   ```bash
+   cd FourBolt
+   rm -rf node_modules
+   npm install
+   ```
 
-1. **Update the App:**
-   - Check for latest version
-   - Download and install updates
+3. **Clear Cache:**
+   - Delete application cache
+   - Restart computer
+   - Try again
 
-2. **Check System Requirements:**
-   - Ensure your OS is supported
-   - Verify you have enough disk space
+### Action Items Not Showing
 
-3. **Reset Settings:**
-   - Close the app
-   - Delete settings file (location varies by OS)
-   - Restart the app
+- Ensure meeting has been fully processed
+- Check Summary tab first
+- AI generates items from discussion context
+- Not all meetings produce action items
 
-### Transcript Accuracy Issues
+### Theme Not Changing
 
-**Expected Accuracy:**
-- Generally 90-95% for clear audio
-- Lower for accented speech, jargon, or background noise
+- Click directly on theme preview
+- Wait 1-2 seconds for application
+- Refresh if needed
+- Check for error messages
 
-**Improving Accuracy:**
-1. Record in a quieter environment
-2. Use a better microphone
-3. Speak more clearly
-4. Set the correct language in Settings
-5. Edit transcripts after creation
+## Keyboard Shortcuts
 
-### Storage Issues
+### Recording
+- `Cmd/Ctrl + Shift + R` - Toggle recording (global)
 
-**Recordings Location:**
-- Default: User data directory
-- Check Settings for location
-- Audio files can be large
+### Notes Formatting
+- `Cmd/Ctrl + B` - Bold text
+- `Cmd/Ctrl + I` - Italic text
+- `Cmd/Ctrl + Shift + 8` - Bullet list
 
-**Managing Space:**
-1. Delete old recordings
-2. Export and archive important ones
-3. Use MP3 format to save space
-4. Choose lower sample rates
+### Navigation
+- `Cmd/Ctrl + 1` - Go to Record
+- `Cmd/Ctrl + 2` - Go to Recordings
+- `Cmd/Ctrl + 3` - Go to Action Items
+- `Cmd/Ctrl + 4` - Go to Settings
 
 ## Getting Help
 
-If you need additional help:
+If you continue to experience issues:
 
 1. **Check Documentation:**
-   - README.md for technical details
-   - This guide for usage instructions
+   - Review this guide thoroughly
+   - Read the README.md file
+   - Check API provider documentation
 
 2. **Report Issues:**
-   - Visit the GitHub repository
-   - Open an issue with details
-   - Include error messages and steps to reproduce
+   - Open an issue on GitHub
+   - Include error messages
+   - Describe steps to reproduce
 
-3. **API-Related Issues:**
-   - Check OpenAI status page
-   - Review OpenAI documentation
-   - Contact OpenAI support for API issues
-
-## Privacy and Security
-
-### Your Data
-
-- All recordings are stored locally on your device
-- Database is local (SQLite)
-- No data is sent to us
-
-### API Usage
-
-- Audio is sent to OpenAI for transcription
-- Review OpenAI's privacy policy
-- API key is stored locally and encrypted
-
-### Best Practices
-
-- Don't record sensitive/private conversations without consent
-- Review and delete recordings regularly
-- Keep your API key secure
-- Don't share recordings with sensitive information
+3. **Community Support:**
+   - Check existing GitHub issues
+   - See if others had similar problems
+   - Share solutions you find
 
 ---
 
-**Happy Recording!**
-
-For more information, visit the project repository or contact support.
+**Happy Recording! Built with Electron and React**

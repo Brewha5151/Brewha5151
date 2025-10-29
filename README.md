@@ -1,6 +1,6 @@
 # FourBolt
 
-A powerful cross-platform desktop application for audio recording and transcription, built with Electron, React, and OpenAI's Whisper API.
+A powerful cross-platform desktop application for meeting transcription, recording management, and AI-powered insights, built with Electron, React, and advanced AI models.
 
 ![FourBolt](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)
@@ -10,79 +10,107 @@ A powerful cross-platform desktop application for audio recording and transcript
 ### Recording View
 ![Recording View](screenshots/recording-view.svg)
 
-### History View
-![History View](screenshots/history-view.svg)
+*Live recording interface with audio waveform visualization, rich text notes, and real-time transcription*
+
+### Meeting Detail View
+![Meeting Detail View](screenshots/meeting-detail-view.svg)
+
+*Comprehensive meeting view with transcript, AI summary, analytics, and action items*
+
+### Action Items Dashboard
+![Action Items Dashboard](screenshots/action-items-view.svg)
+
+*Centralized action items management with assignees, priorities, and due dates*
 
 ### Settings View
 ![Settings View](screenshots/settings-view.svg)
 
+*Customizable settings with multiple color themes, AI model selection, and statistics*
+
 ## Features
 
-### Audio Recording
-- Real-time audio capture from system microphone
-- Multiple audio input device support
-- Live audio level monitoring and visualization
-- Pause/resume recording capability
-- High-quality audio encoding (WAV/MP3 formats)
-- Configurable sample rates (16kHz, 44.1kHz, 48kHz)
+### Beautiful UI with Multiple Themes
+- **4 Professional Color Palettes**: Medium Gray (default), Light, Midnight Blue, and Retro 90s
+- **Modern Design**: Gradient-based interface with glass-morphism effects
+- **Professional Icons**: Clean, consistent iconography throughout
+- **Responsive Layout**: Smooth transitions and adaptive components
+
+### Advanced Recording
+- **Live Audio Waveform Visualization**: Real-time visual feedback during recording
+- **Pause/Resume Capability**: Full control over recording sessions
+- **Meeting Templates**: Pre-configured templates (General, Standup, Retrospective, Sales)
+- **Rich Text Notes**: Format notes with bold, italic, and lists during recording
+- **Real-Time Transcription**: See transcription appear live as you record
 
 ### AI-Powered Transcription
-- Integration with OpenAI Whisper API for accurate transcription
-- Multi-language support with automatic language detection
-- Timestamp generation for precise navigation
-- Confidence scores for transcribed segments
-- Real-time and batch processing modes
+- **Multiple AI Models**: Choose between Claude Sonnet 4.5 and GPT-4
+- **AI-Generated Summaries**: Automatic meeting summaries with key points
+- **Custom Vocabulary**: Add domain-specific terms for better accuracy
+- **Speaker Identification**: Track and edit speaker names in transcripts
+- **Timestamp Navigation**: Click timestamps to jump to specific moments
 
-### Recording Management
-- Named recording sessions with metadata
-- Automatic file naming with timestamps
-- Searchable recording history
-- Tag and category system for organization
-- Quick access to past recordings
+### Comprehensive Meeting Management
+- **Tabbed Meeting Views**: Switch between Transcript, Summary, and Analytics
+- **Editable Transcripts**: Click to edit speaker names and transcript content
+- **Bookmark System**: Mark important moments during meetings
+- **Search Functionality**: Find meetings quickly with powerful search
+- **Meeting History**: Browse all past recordings with metadata
 
-### Transcript Editor
-- Editable transcripts with timestamp navigation
-- Click timestamps to jump to audio positions
-- Search within transcripts
-- Multiple export formats (TXT, SRT, VTT, PDF)
-- Highlight and annotate sections
+### Action Items Management
+- **Dedicated Dashboard**: Centralized view of all action items across meetings
+- **Assignee Tracking**: Assign tasks to specific team members
+- **Priority Levels**: Mark items as high, medium, or low priority
+- **Due Date Management**: Set and track deadlines
+- **Completion Tracking**: Check off completed items with visual progress
+- **Search & Filter**: Find action items by status, assignee, or meeting
 
-### Customization
-- Dark/Light theme support
-- Configurable audio quality settings
-- Custom keyboard shortcuts
-- API key management
-- Language preferences
+### Analytics & Insights
+- **Speaking Time Analysis**: Visual charts showing speaking distribution
+- **Meeting Statistics**: Track total words, speaker count, and action items
+- **Analytics Dashboard**: Comprehensive metrics for each meeting
+- **Progress Tracking**: Monitor overall recording statistics
+
+### Export Capabilities
+- **Multiple Formats**: Export transcripts as TXT, SRT, VTT, or PDF
+- **Download Action Items**: Export action items for task management
+- **Meeting Summaries**: Generate comprehensive meeting reports
+
+### Integration Features
+- **Calendar Integration**: Connect with your calendar for automatic meeting titles
+- **Microphone Selection**: Choose from available audio input devices
+- **Cloud Ready**: Architecture supports future cloud sync features
 
 ## Installation
 
 ### Prerequisites
 - Node.js 18+ and npm
-- OpenAI API key (for transcription features)
+- OpenAI API key or Anthropic API key (for transcription and AI features)
 
-### Setup
+### Quick Start
 
-1. **Clone the repository:**
-```bash
-git clone https://github.com/yourusername/fourbolt.git
-cd fourbolt
-```
+1. **Download the project:**
+   - Go to the GitHub repository
+   - Click the green "Code" button
+   - Select "Download ZIP"
+   - Extract the ZIP file to a location of your choice
 
 2. **Install dependencies:**
-```bash
-npm install
-```
+   ```bash
+   cd FourBolt
+   npm install
+   ```
 
 3. **Configure your API key:**
    - Launch the application
-   - Navigate to Settings
-   - Enter your OpenAI API key
-   - Or set the `OPENAI_API_KEY` environment variable
+   - Navigate to Settings (gear icon)
+   - Select your preferred AI model (Claude Sonnet 4.5 or GPT-4)
+   - Enter your API key
+   - Or set the `OPENAI_API_KEY` or `ANTHROPIC_API_KEY` environment variable
 
 4. **Run in development mode:**
-```bash
-npm run dev
-```
+   ```bash
+   npm run dev
+   ```
 
 ## Building for Production
 
@@ -113,75 +141,103 @@ The built applications will be available in the `release/` directory.
 
 ## Usage
 
-### Recording Audio
+### Starting a New Recording
 
-1. **Start a Recording:**
-   - Click the "Record" tab in the sidebar
-   - Enter a title for your recording
-   - Select your audio input device
-   - (Optional) Add notes about the recording
-   - Click "Start Recording"
+1. **Set Up Your Meeting:**
+   - Enter a meeting title (or let it auto-generate from date/time)
+   - Choose a meeting template (optional):
+     - **General Meeting**: Standard meetings
+     - **Standup**: Quick team check-ins
+     - **Retrospective**: Sprint reviews
+     - **Sales**: Client calls and demos
 
-2. **During Recording:**
-   - Monitor the audio levels in real-time
-   - Use "Pause" to temporarily stop recording
-   - Use "Stop & Save" when finished
+2. **Start Recording:**
+   - Click the large microphone button
+   - Watch the live audio waveform for visual feedback
+   - See real-time transcription appear below (if enabled)
 
-3. **After Recording:**
-   - The audio is automatically saved
-   - Transcription begins immediately (if API key is configured)
-   - View your recording in the History tab
+3. **During the Meeting:**
+   - **Take Notes**: Use the rich text editor to jot down thoughts
+     - Format with Bold, Italic, or Lists
+     - Notes are saved automatically
+   - **Pause/Resume**: Control recording with pause button
+   - **Monitor Progress**: View elapsed time and audio levels
 
-### Managing Recordings
+4. **Stop & Save:**
+   - Click "Stop & Save" when finished
+   - Recording is automatically processed and added to your history
 
-1. **View History:**
-   - Click the "History" tab
-   - Browse all your recordings
-   - Use the search bar to find specific recordings
-   - Click any recording to view its transcript
+### Managing Meetings
 
-2. **Search Recordings:**
-   - Enter keywords in the search bar
-   - Searches across titles, notes, and transcripts
-   - Press Enter or click "Search"
-   - Click "Clear" to reset
+1. **Browse History:**
+   - Click "Recordings" in the sidebar
+   - See all past meetings with dates and durations
+   - Use search to find specific meetings
 
-### Working with Transcripts
+2. **View Meeting Details:**
+   - Click any meeting card to open detailed view
+   - Switch between three tabs:
+     - **Transcript**: Full conversation with timestamps
+     - **Summary**: AI-generated summary and key points
+     - **Analytics**: Speaking time charts and statistics
 
-1. **View Transcript:**
-   - Click a recording from the History view
-   - View the full transcript with timestamps
-   - Click timestamps to navigate (when audio playback is available)
+3. **Edit Meeting Information:**
+   - Click the edit icon next to meeting title to rename
+   - Click speaker names to change speaker identification
+   - Add bookmarks to mark important moments
 
-2. **Edit Transcript:**
-   - Click "Edit Mode"
-   - Make your changes
-   - Click "Save Changes"
+### Working with Action Items
 
-3. **Export Transcript:**
-   - Choose from multiple formats:
-     - **TXT**: Plain text format
-     - **SRT**: Subtitle format with timestamps
-     - **VTT**: Web video text tracks format
-     - **PDF**: Formatted document
+1. **View All Action Items:**
+   - Click "Action Items" in the sidebar
+   - See dashboard with statistics (total, completed, pending, overdue)
+   - Filter by status: All, Active, Completed, Overdue
+   - Sort by: Most Recent, Due Date, Priority, Assignee
 
-### Settings Configuration
+2. **From Meeting Summaries:**
+   - Open any meeting's Summary tab
+   - View auto-generated action items
+   - Check off completed items
+   - See assignee, due date, and priority for each item
 
-1. **Transcription Settings:**
-   - **API Key**: Your OpenAI API key for Whisper
-   - **Model**: Select Whisper model (whisper-1)
-   - **Language**: Choose default language or auto-detect
+3. **Add New Action Items:**
+   - During or after meetings
+   - Assign to team members
+   - Set priority and due dates
+   - Track completion status
 
-2. **Audio Settings:**
-   - **Sample Rate**: Choose quality (16kHz, 44.1kHz, 48kHz)
-   - **Format**: Select WAV or MP3
+### Customizing Settings
 
-3. **Appearance:**
-   - **Theme**: Toggle between Light and Dark mode
+1. **Choose Your Theme:**
+   - Open Settings (gear icon in sidebar)
+   - Browse 4 color palette options:
+     - **Medium Gray**: Professional dark theme (default)
+     - **Light**: Clean bright theme
+     - **Midnight Blue**: Deep blue theme
+     - **Retro 90s**: Nostalgic teal and silver theme
+   - Click to apply instantly
+
+2. **Configure AI Settings:**
+   - **Default AI Model**: Select Claude Sonnet 4.5 or GPT-4
+   - **Custom Vocabulary**: Add industry-specific terms
+     - Examples: "forklift", "pallet jack", "reach truck"
+     - Improves transcription accuracy
+
+3. **Audio & Integration:**
+   - **Microphone Selection**: Choose your preferred input device
+   - **Calendar Integration**: Enable for automatic meeting titles
+
+4. **View Statistics:**
+   - Total Recordings count
+   - Total Minutes recorded
+   - Track your usage over time
 
 ### Keyboard Shortcuts
 
 - `Cmd/Ctrl + Shift + R` - Toggle recording (global shortcut)
+- `Cmd/Ctrl + B` - Bold text in notes
+- `Cmd/Ctrl + I` - Italic text in notes
+- `Cmd/Ctrl + Shift + 8` - Create bullet list in notes
 
 ## Architecture
 
@@ -190,8 +246,9 @@ The built applications will be available in the `release/` directory.
 - **Frontend**: React 18 with TypeScript
 - **Desktop Framework**: Electron 28
 - **Build Tool**: Vite 5
+- **UI Components**: Lucide React Icons
 - **Database**: SQLite (better-sqlite3)
-- **Transcription**: OpenAI Whisper API
+- **AI Services**: OpenAI API, Anthropic Claude API
 - **Audio**: Web Audio API, MediaRecorder API
 
 ### Project Structure
@@ -207,78 +264,24 @@ fourbolt/
 │   │       ├── DatabaseService.ts
 │   │       └── TranscriptionService.ts
 │   └── renderer/            # React application
-│       ├── components/      # React components
-│       │   ├── RecordingView.tsx
-│       │   ├── HistoryView.tsx
-│       │   ├── TranscriptView.tsx
-│       │   └── SettingsView.tsx
+│       ├── components/      # React components (legacy)
 │       ├── hooks/          # Custom React hooks
 │       ├── styles/         # CSS stylesheets
 │       ├── types/          # TypeScript definitions
-│       └── App.tsx         # Main app component
+│       └── App.tsx         # Main app component (single-file)
+├── screenshots/            # UI mockups and screenshots
 ├── package.json
 ├── tsconfig.json
 └── vite.config.ts
 ```
 
-## Development
+### Current Implementation
 
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run package` - Create distributable packages
-- `npm start` - Run the built application
-
-### Adding New Features
-
-1. **Backend Services** (Main Process):
-   - Add new services in `src/main/services/`
-   - Register IPC handlers in `src/main/main.ts`
-   - Expose APIs in `src/main/preload.ts`
-
-2. **Frontend Components** (Renderer Process):
-   - Create components in `src/renderer/components/`
-   - Add styles in `src/renderer/styles/`
-   - Define types in `src/renderer/types/`
-
-### Database Schema
-
-**Recordings Table:**
-```sql
-CREATE TABLE recordings (
-  id TEXT PRIMARY KEY,
-  title TEXT NOT NULL,
-  filePath TEXT NOT NULL,
-  duration INTEGER NOT NULL,
-  createdAt TEXT NOT NULL,
-  tags TEXT,
-  notes TEXT,
-  transcript TEXT,
-  transcriptSegments TEXT,
-  language TEXT,
-  modelUsed TEXT
-);
-```
-
-## API Integration
-
-### OpenAI Whisper API
-
-The app uses the OpenAI Whisper API for transcription. You'll need an API key from [OpenAI Platform](https://platform.openai.com/api-keys).
-
-**Supported Models:**
-- `whisper-1` - Most accurate and recommended
-
-**Supported Languages:**
-- English, Spanish, French, German, Italian, Portuguese, Dutch
-- Auto-detection for any language
-
-**Response Formats:**
-- `verbose_json` - Detailed with timestamps and segments (default)
-- `json` - Simple text output
-- `srt` - SubRip subtitle format
-- `vtt` - WebVTT format
+The app uses a **single-file React component** architecture in `App.tsx` with:
+- **25+ React hooks** for comprehensive state management
+- **Inline styling** with dynamic theme support
+- **Helper functions** for formatting, filtering, and data manipulation
+- **Sample data** included for demonstration purposes
 
 ## Troubleshooting
 
@@ -294,28 +297,40 @@ The app uses the OpenAI Whisper API for transcription. You'll need an API key fr
 
 ### Transcription Errors
 
-1. **"API key not set"**: Configure your OpenAI API key in Settings
+1. **"API key not set"**: Configure your API key in Settings
 2. **"Transcription failed"**: Check your internet connection and API key validity
-3. **"Audio file not found"**: Ensure recordings are being saved properly
+3. **Network errors**: Verify API service is accessible
 
 ### Audio Recording Issues
 
-1. **No audio devices found**: Check system audio settings
-2. **Low audio quality**: Increase sample rate in Settings
-3. **Audio level too low**: Position microphone closer or adjust system input volume
+1. **No audio devices found**: Check system audio settings and permissions
+2. **Audio level too low**: Adjust system input volume or microphone position
+3. **Waveform not showing**: Ensure microphone permissions are granted
 
-## Performance Optimization
+### Application Won't Start
 
-### For Long Recordings:
-- Use 16kHz sample rate for smaller files
-- Choose MP3 format for compression
-- Close other applications during recording
+1. **"npm install" fails**:
+   - Check Node.js version (requires 18+)
+   - Try deleting `node_modules` folder and running `npm install` again
+   - Check internet connection
+
+2. **"command not found: npm"**:
+   - Install Node.js from https://nodejs.org
+   - Restart your terminal after installation
+
+## Performance Tips
+
+### For Best Recording Quality:
+- Use a quality external microphone
+- Record in a quiet environment
+- Close unnecessary applications
+- Ensure stable internet connection for AI features
 
 ### For Better Transcription:
-- Record in a quiet environment
-- Use a quality microphone
 - Speak clearly at moderate pace
-- Keep recordings under 25MB for faster processing
+- Minimize background noise
+- Use custom vocabulary for technical terms
+- Choose appropriate AI model for your needs
 
 ## Contributing
 
@@ -333,9 +348,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- [OpenAI Whisper](https://openai.com/research/whisper) - Speech recognition model
+- [OpenAI](https://openai.com/) - GPT-4 and Whisper models
+- [Anthropic](https://www.anthropic.com/) - Claude AI models
 - [Electron](https://www.electronjs.org/) - Desktop application framework
 - [React](https://reactjs.org/) - UI library
+- [Lucide](https://lucide.dev/) - Beautiful icon library
 - [Better SQLite3](https://github.com/WiseLibs/better-sqlite3) - SQLite bindings
 
 ## Support
@@ -343,20 +360,29 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For issues, questions, or suggestions:
 - Open an issue on GitHub
 - Check the [Troubleshooting](#troubleshooting) section
-- Review [OpenAI API documentation](https://platform.openai.com/docs/api-reference)
+- Review API documentation for your chosen AI service
 
-## Roadmap
+## What's New in v1.0.0
 
-### Planned Features:
-- [ ] Real-time streaming transcription
-- [ ] Speaker diarization (identify different speakers)
-- [ ] Local Whisper model support (no API required)
-- [ ] Audio playback with transcript synchronization
-- [ ] Cloud sync (Dropbox, Google Drive)
-- [ ] Meeting templates and presets
-- [ ] Advanced audio editing tools
-- [ ] Mobile companion app
-- [ ] Team collaboration features
+### Advanced Features:
+- Multiple color theme support with 4 professional palettes
+- Comprehensive action items management system
+- Meeting analytics with speaking time charts
+- AI-generated summaries and key points
+- Rich text notes editor with formatting
+- Bookmark system for important moments
+- Editable speaker names
+- Meeting templates for quick setup
+- Dedicated action items dashboard
+- Custom vocabulary support
+- Multiple AI model support (Claude & GPT-4)
+
+### Enhanced UI:
+- Modern gradient-based design
+- Glass-morphism effects
+- Professional icon system
+- Responsive card layouts
+- Smooth transitions and animations
 
 ---
 
