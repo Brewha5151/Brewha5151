@@ -177,7 +177,7 @@ const SettingsView: React.FC = () => {
         <div className="settings-section">
           <h3>About</h3>
           <p className="about-text">
-            <strong>MacWhisper Dictation</strong><br />
+            <strong>FourBolt</strong><br />
             Version 1.0.0<br />
             A cross-platform desktop application for audio recording and transcription.
           </p>

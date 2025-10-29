@@ -1,8 +1,8 @@
-# MacWhisper Dictation App
+# FourBolt
 
 A powerful cross-platform desktop application for audio recording and transcription, built with Electron, React, and OpenAI's Whisper API.
 
-![MacWhisper Dictation](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![FourBolt](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)
 
 ## Features
@@ -53,8 +53,8 @@ A powerful cross-platform desktop application for audio recording and transcript
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/yourusername/macwhisper-dictation-app.git
-cd macwhisper-dictation-app
+git clone https://github.com/yourusername/fourbolt.git
+cd fourbolt
 ```
 
 2. **Install dependencies:**
@@ -186,7 +186,7 @@ The built applications will be available in the `release/` directory.
 ### Project Structure
 
 ```
-macwhisper-dictation-app/
+fourbolt/
 ├── src/
 │   ├── main/                 # Electron main process
 │   │   ├── main.ts          # Main entry point
@@ -275,7 +275,7 @@ The app uses the OpenAI Whisper API for transcription. You'll need an API key fr
 
 **macOS:**
 1. Go to System Preferences → Security & Privacy → Privacy → Microphone
-2. Ensure the app has microphone access
+2. Ensure FourBolt has microphone access
 
 **Windows:**
 1. Go to Settings → Privacy → Microphone

@@ -1,4 +1,4 @@
-# Contributing to MacWhisper Dictation App
+# Contributing to FourBolt
 
 Thank you for your interest in contributing! This document provides guidelines and instructions for contributing to the project.
 
@@ -107,4 +107,4 @@ To report a bug:
 
 Feel free to open an issue with the "question" label for any questions about contributing.
 
-Thank you for contributing to MacWhisper Dictation App!
+Thank you for contributing to FourBolt!

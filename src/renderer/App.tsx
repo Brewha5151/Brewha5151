@@ -38,7 +38,7 @@ const App: React.FC = () => {
     <div className="app">
       <nav className="sidebar">
         <div className="sidebar-header">
-          <h1>MacWhisper</h1>
+          <h1>FourBolt</h1>
         </div>
         <ul className="sidebar-nav">
           <li

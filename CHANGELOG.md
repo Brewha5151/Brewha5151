@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-01-15
 
 ### Added
-- Initial release of MacWhisper Dictation App
+- Initial release of FourBolt
 - Real-time audio recording with pause/resume capability
 - Multiple audio input device support
 - Live audio level monitoring and visualization
@@ -101,4 +101,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-[1.0.0]: https://github.com/yourusername/macwhisper-dictation-app/releases/tag/v1.0.0
+[1.0.0]: https://github.com/yourusername/fourbolt/releases/tag/v1.0.0

@@ -1,7 +1,7 @@
 {
-  "name": "macwhisper-dictation-app",
+  "name": "fourbolt",
   "version": "1.0.0",
-  "description": "Cross-platform desktop application for audio recording and transcription",
+  "description": "FourBolt - Cross-platform desktop application for audio recording and transcription",
   "main": "dist/main/main.js",
   "scripts": {
     "dev": "concurrently \"npm run dev:main\" \"npm run dev:renderer\"",
@@ -50,8 +50,8 @@
     "vite-plugin-electron": "^0.28.2"
   },
   "build": {
-    "appId": "com.macwhisper.dictation",
-    "productName": "MacWhisper Dictation",
+    "appId": "com.fourbolt.app",
+    "productName": "FourBolt",
     "directories": {
       "output": "release"
     },

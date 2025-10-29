@@ -1,6 +1,6 @@
-# MacWhisper Dictation App - User Guide
+# FourBolt - User Guide
 
-Welcome to MacWhisper Dictation App! This guide will help you get started with recording and transcribing audio.
+Welcome to FourBolt! This guide will help you get started with recording and transcribing audio.
 
 ## Table of Contents
 1. [Getting Started](#getting-started)
@@ -15,7 +15,7 @@ Welcome to MacWhisper Dictation App! This guide will help you get started with r
 
 ### First Launch
 
-When you first launch MacWhisper Dictation App, you'll see a clean interface with three main sections:
+When you first launch FourBolt, you'll see a clean interface with three main sections:
 - **Record**: Create new audio recordings
 - **History**: View and manage past recordings
 - **Settings**: Configure the application
@@ -285,7 +285,7 @@ More shortcuts coming in future updates!
 **macOS:**
 1. Go to System Preferences → Security & Privacy → Privacy
 2. Select "Microphone" in the left sidebar
-3. Ensure MacWhisper Dictation has a checkmark
+3. Ensure FourBolt has a checkmark
 
 **Windows:**
 1. Go to Settings → Privacy → Microphone
