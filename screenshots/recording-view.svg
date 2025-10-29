@@ -1,0 +1,61 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- Sidebar -->
+  <rect width="200" height="800" fill="#f5f5f7"/>
+  <line x1="200" y1="0" x2="200" y2="800" stroke="#d2d2d7" stroke-width="1"/>
+
+  <!-- Sidebar Header -->
+  <text x="20" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#1d1d1f">FourBolt</text>
+  <line x1="20" y1="60" x2="180" y2="60" stroke="#d2d2d7" stroke-width="1"/>
+
+  <!-- Sidebar Nav - Record (Active) -->
+  <rect x="0" y="80" width="200" height="44" fill="#007aff"/>
+  <circle cx="30" cy="102" r="8" stroke="#ffffff" stroke-width="2" fill="none"/>
+  <text x="50" y="107" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#ffffff">Record</text>
+
+  <!-- Sidebar Nav - History -->
+  <rect x="20" y="134" width="16" height="16" stroke="#1d1d1f" stroke-width="1.5" fill="none" rx="2"/>
+  <text x="50" y="147" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#1d1d1f">History</text>
+
+  <!-- Sidebar Nav - Settings -->
+  <circle cx="28" cy="182" r="8" stroke="#1d1d1f" stroke-width="1.5" fill="none"/>
+  <circle cx="28" cy="182" r="3" fill="#1d1d1f"/>
+  <text x="50" y="187" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#1d1d1f">Settings</text>
+
+  <!-- Main Content Area -->
+  <text x="240" y="60" font-family="Arial, sans-serif" font-size="32" font-weight="600" fill="#1d1d1f">Record Audio</text>
+
+  <!-- Form Container -->
+  <rect x="240" y="100" width="720" height="520" fill="#f5f5f7" rx="12"/>
+
+  <!-- Recording Title Input -->
+  <text x="260" y="135" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#1d1d1f">Recording Title</text>
+  <rect x="260" y="145" width="680" height="40" fill="#ffffff" stroke="#d2d2d7" stroke-width="1" rx="8"/>
+  <text x="275" y="171" font-family="Arial, sans-serif" font-size="14" fill="#6e6e73">Enter a title for this recording</text>
+
+  <!-- Audio Device Selector -->
+  <text x="260" y="215" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#1d1d1f">Audio Input Device</text>
+  <rect x="260" y="225" width="680" height="40" fill="#ffffff" stroke="#d2d2d7" stroke-width="1" rx="8"/>
+  <text x="275" y="251" font-family="Arial, sans-serif" font-size="14" fill="#1d1d1f">Default Microphone</text>
+  <polygon points="920,243 925,248 930,243" fill="#1d1d1f"/>
+
+  <!-- Notes Textarea -->
+  <text x="260" y="295" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#1d1d1f">Notes (Optional)</text>
+  <rect x="260" y="305" width="680" height="100" fill="#ffffff" stroke="#d2d2d7" stroke-width="1" rx="8"/>
+  <text x="275" y="331" font-family="Arial, sans-serif" font-size="14" fill="#6e6e73">Add any notes or context about this recording</text>
+
+  <!-- Start Recording Button -->
+  <rect x="460" y="430" width="280" height="50" fill="#007aff" rx="8"/>
+  <circle cx="490" cy="455" r="8" fill="#ffffff"/>
+  <text x="510" y="462" font-family="Arial, sans-serif" font-size="16" font-weight="500" fill="#ffffff">Start Recording</text>
+
+  <!-- Tips Section -->
+  <rect x="240" y="640" width="720" height="140" fill="#f5f5f7" rx="12"/>
+  <text x="260" y="670" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#1d1d1f">Tips for better recordings:</text>
+  <text x="280" y="695" font-family="Arial, sans-serif" font-size="13" fill="#6e6e73">• Find a quiet environment to minimize background noise</text>
+  <text x="280" y="715" font-family="Arial, sans-serif" font-size="13" fill="#6e6e73">• Position your microphone 6-12 inches from your mouth</text>
+  <text x="280" y="735" font-family="Arial, sans-serif" font-size="13" fill="#6e6e73">• Speak clearly and at a moderate pace</text>
+  <text x="280" y="755" font-family="Arial, sans-serif" font-size="13" fill="#6e6e73">• Use the pause button for breaks instead of stopping</text>
+</svg>

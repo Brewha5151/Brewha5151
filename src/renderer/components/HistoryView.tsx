@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Clock, Calendar, Trash2, Search as SearchIcon, X } from 'lucide-react';
 import { Recording } from '../types';
 import '../styles/HistoryView.css';
 
@@ -84,6 +85,7 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onSelectRecording }) => {
             className="input"
           />
           <button onClick={handleSearch} className="btn btn-secondary">
+            <SearchIcon size={16} />
             Search
           </button>
           {searchQuery && (
@@ -94,6 +96,7 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onSelectRecording }) => {
               }}
               className="btn btn-secondary"
             >
+              <X size={16} />
               Clear
             </button>
           )}
@@ -130,17 +133,17 @@ const HistoryView: React.FC<HistoryViewProps> = ({ onSelectRecording }) => {
                     className="btn-icon btn-delete"
                     title="Delete recording"
                   >
-                    🗑️
+                    <Trash2 size={16} />
                   </button>
                 </div>
 
                 <div className="recording-card-meta">
                   <span className="meta-item">
-                    <span className="icon">⏱️</span>
+                    <Clock size={16} />
                     {formatDuration(recording.duration)}
                   </span>
                   <span className="meta-item">
-                    <span className="icon">📅</span>
+                    <Calendar size={16} />
                     {formatDate(recording.createdAt)}
                   </span>
                 </div>

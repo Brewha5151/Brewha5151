@@ -31,7 +31,8 @@
     "electron-store": "^8.1.0",
     "openai": "^4.20.1",
     "uuid": "^9.0.1",
-    "date-fns": "^3.0.0"
+    "date-fns": "^3.0.0",
+    "lucide-react": "^0.294.0"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.8",

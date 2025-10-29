@@ -196,8 +196,16 @@ body {
 }
 
 /* Utilities */
-.icon {
-  font-size: 18px;
+.confidence-high {
+  color: var(--success-color);
+}
+
+.confidence-medium {
+  color: #ff9500;
+}
+
+.confidence-low {
+  color: var(--danger-color);
 }
 
 kbd {

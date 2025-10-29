@@ -24,7 +24,7 @@ When you first launch FourBolt, you'll see a clean interface with three main sec
 
 Before you can transcribe audio, you need to configure your OpenAI API key:
 
-1. Click the **Settings** icon in the sidebar (⚙️)
+1. Click the **Settings** icon in the sidebar
 2. In the "OpenAI API Key" field, enter your API key
    - Get an API key from [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
    - It should start with `sk-`
@@ -37,7 +37,7 @@ Your API key is stored securely on your local machine and is never shared.
 ### Step-by-Step Recording Process
 
 1. **Navigate to Record Tab**
-   - Click the Record icon (🎙️) in the sidebar
+   - Click the Record icon in the sidebar
 
 2. **Configure Your Recording**
    - **Title**: Enter a descriptive name (e.g., "Team Meeting - Jan 15")
@@ -45,7 +45,7 @@ Your API key is stored securely on your local machine and is never shared.
    - **Notes**: (Optional) Add context or meeting agenda
 
 3. **Start Recording**
-   - Click the **Start Recording** button (⏺)
+   - Click the **Start Recording** button
    - The button will turn red and show "Recording"
    - You'll see a live audio level indicator
 
@@ -56,7 +56,7 @@ Your API key is stored securely on your local machine and is never shared.
    - **Resume Button**: Continue recording after pausing
 
 5. **Stop and Save**
-   - Click **Stop & Save** (⏹) when finished
+   - Click **Stop & Save** when finished
    - The audio is automatically saved
    - Transcription begins immediately (requires API key)
 
@@ -81,7 +81,7 @@ The audio level bar shows your microphone input:
 
 ### Viewing Your History
 
-1. Click the **History** icon (📚) in the sidebar
+1. Click the **History** icon in the sidebar
 2. You'll see all your recordings as cards showing:
    - Title and date
    - Duration
@@ -108,7 +108,7 @@ The search feature looks through:
 ### Deleting Recordings
 
 1. Find the recording you want to delete
-2. Click the trash icon (🗑️) in the top right of the card
+2. Click the trash icon in the top right of the card
 3. Confirm deletion
 4. Both the audio file and database entry are removed
 
@@ -131,9 +131,9 @@ If your transcript shows timestamps:
 - **Time marker**: Shows when each segment was spoken
 - **Text**: The transcribed words
 - **Confidence indicator**:
-  - ✓ = High confidence (>90%)
-  - ~ = Medium confidence (70-90%)
-  - ? = Low confidence (<70%)
+  - Checkmark = High confidence (>90%)
+  - Alert = Medium confidence (70-90%)
+  - Question = Low confidence (<70%)
 
 ### Editing Transcripts
 
@@ -425,6 +425,6 @@ If you need additional help:
 
 ---
 
-**Happy Recording!** 🎙️
+**Happy Recording!**
 
 For more information, visit the project repository or contact support.

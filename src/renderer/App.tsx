@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Mic, History, Settings } from 'lucide-react';
 import RecordingView from './components/RecordingView';
 import HistoryView from './components/HistoryView';
 import TranscriptView from './components/TranscriptView';
@@ -45,21 +46,21 @@ const App: React.FC = () => {
             className={state.currentView === 'recording' ? 'active' : ''}
             onClick={() => navigateToView('recording')}
           >
-            <span className="icon">🎙️</span>
+            <Mic size={20} />
             <span>Record</span>
           </li>
           <li
             className={state.currentView === 'history' ? 'active' : ''}
             onClick={() => navigateToView('history')}
           >
-            <span className="icon">📚</span>
+            <History size={20} />
             <span>History</span>
           </li>
           <li
             className={state.currentView === 'settings' ? 'active' : ''}
             onClick={() => navigateToView('settings')}
           >
-            <span className="icon">⚙️</span>
+            <Settings size={20} />
             <span>Settings</span>
           </li>
         </ul>

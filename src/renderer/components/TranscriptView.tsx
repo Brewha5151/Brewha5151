@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ArrowLeft, Edit3, FileText, Download, Check, AlertCircle, HelpCircle } from 'lucide-react';
 import { Recording } from '../types';
 import '../styles/TranscriptView.css';
 
@@ -79,7 +80,8 @@ const TranscriptView: React.FC<TranscriptViewProps> = ({ recordingId, onBack }) 
     <div className="transcript-view">
       <div className="transcript-header">
         <button onClick={onBack} className="btn-back">
-          ← Back
+          <ArrowLeft size={18} />
+          Back
         </button>
         <div className="transcript-title">
           <h2>{recording.title}</h2>
@@ -99,19 +101,24 @@ const TranscriptView: React.FC<TranscriptViewProps> = ({ recordingId, onBack }) 
 
       <div className="transcript-actions">
         <button onClick={() => setIsEditing(!isEditing)} className="btn btn-secondary">
+          <Edit3 size={16} />
           {isEditing ? 'View Mode' : 'Edit Mode'}
         </button>
         <div className="export-buttons">
           <button onClick={() => handleExport('txt')} className="btn btn-secondary">
+            <Download size={16} />
             Export TXT
           </button>
           <button onClick={() => handleExport('srt')} className="btn btn-secondary">
+            <Download size={16} />
             Export SRT
           </button>
           <button onClick={() => handleExport('vtt')} className="btn btn-secondary">
+            <Download size={16} />
             Export VTT
           </button>
           <button onClick={() => handleExport('pdf')} className="btn btn-secondary">
+            <Download size={16} />
             Export PDF
           </button>
         </div>
@@ -146,7 +153,13 @@ const TranscriptView: React.FC<TranscriptViewProps> = ({ recordingId, onBack }) 
                         className="segment-confidence"
                         title={`Confidence: ${(segment.confidence * 100).toFixed(1)}%`}
                       >
-                        {segment.confidence > 0.9 ? '✓' : segment.confidence > 0.7 ? '~' : '?'}
+                        {segment.confidence > 0.9 ? (
+                          <Check size={14} className="confidence-high" />
+                        ) : segment.confidence > 0.7 ? (
+                          <AlertCircle size={14} className="confidence-medium" />
+                        ) : (
+                          <HelpCircle size={14} className="confidence-low" />
+                        )}
                       </span>
                     )}
                   </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Circle, Pause, Play, Square } from 'lucide-react';
 import { useAudioRecorder } from '../hooks/useAudioRecorder';
 import { AudioDevice } from '../types';
 import { v4 as uuidv4 } from 'uuid';
@@ -186,7 +187,7 @@ const RecordingView: React.FC = () => {
         <div className="recording-controls">
           {!state.isRecording && !isTranscribing && (
             <button onClick={handleStartRecording} className="btn btn-primary btn-record">
-              <span className="icon">⏺</span>
+              <Circle size={20} fill="currentColor" />
               Start Recording
             </button>
           )}
@@ -195,18 +196,18 @@ const RecordingView: React.FC = () => {
             <>
               {!state.isPaused ? (
                 <button onClick={pauseRecording} className="btn btn-secondary">
-                  <span className="icon">⏸</span>
+                  <Pause size={20} />
                   Pause
                 </button>
               ) : (
                 <button onClick={resumeRecording} className="btn btn-secondary">
-                  <span className="icon">▶️</span>
+                  <Play size={20} />
                   Resume
                 </button>
               )}
 
               <button onClick={handleStopRecording} className="btn btn-danger">
-                <span className="icon">⏹</span>
+                <Square size={20} />
                 Stop & Save
               </button>
             </>

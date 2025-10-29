@@ -5,9 +5,20 @@ A powerful cross-platform desktop application for audio recording and transcript
 ![FourBolt](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)
 
+## Screenshots
+
+### Recording View
+![Recording View](screenshots/recording-view.svg)
+
+### History View
+![History View](screenshots/history-view.svg)
+
+### Settings View
+![Settings View](screenshots/settings-view.svg)
+
 ## Features
 
-### 🎙️ Audio Recording
+### Audio Recording
 - Real-time audio capture from system microphone
 - Multiple audio input device support
 - Live audio level monitoring and visualization
@@ -15,28 +26,28 @@ A powerful cross-platform desktop application for audio recording and transcript
 - High-quality audio encoding (WAV/MP3 formats)
 - Configurable sample rates (16kHz, 44.1kHz, 48kHz)
 
-### 📝 AI-Powered Transcription
+### AI-Powered Transcription
 - Integration with OpenAI Whisper API for accurate transcription
 - Multi-language support with automatic language detection
 - Timestamp generation for precise navigation
 - Confidence scores for transcribed segments
 - Real-time and batch processing modes
 
-### 📚 Recording Management
+### Recording Management
 - Named recording sessions with metadata
 - Automatic file naming with timestamps
 - Searchable recording history
 - Tag and category system for organization
 - Quick access to past recordings
 
-### ✏️ Transcript Editor
+### Transcript Editor
 - Editable transcripts with timestamp navigation
 - Click timestamps to jump to audio positions
 - Search within transcripts
 - Multiple export formats (TXT, SRT, VTT, PDF)
 - Highlight and annotate sections
 
-### ⚙️ Customization
+### Customization
 - Dark/Light theme support
 - Configurable audio quality settings
 - Custom keyboard shortcuts
@@ -349,4 +360,4 @@ For issues, questions, or suggestions:
 
 ---
 
-**Made with ❤️ using Electron and React**
+**Built with Electron and React**
