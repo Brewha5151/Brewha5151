@@ -1,0 +1,136 @@
+<svg width="1400" height="900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#374151;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4b5563;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#374151;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7B2FF7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#bg)"/>
+
+  <!-- Top Navigation -->
+  <rect x="0" y="0" width="1400" height="70" fill="rgba(0, 0, 0, 0.3)"/>
+  <text x="30" y="45" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">FourBolt</text>
+
+  <!-- Left Sidebar - Recording Vault -->
+  <rect x="0" y="70" width="320" height="830" fill="rgba(0, 0, 0, 0.2)"/>
+  <text x="20" y="110" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="white">Recording Vault</text>
+
+  <!-- Meetings List -->
+  <g transform="translate(20, 130)">
+    <!-- Selected Meeting -->
+    <rect x="0" y="0" width="280" height="90" rx="8" fill="rgba(123, 47, 247, 0.2)" stroke="#7B2FF7" stroke-width="2"/>
+    <text x="15" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white">Team Standup</text>
+    <text x="15" y="45" font-family="Arial, sans-serif" font-size="11" fill="rgba(255, 255, 255, 0.5)">Nov 14, 2025 • 10:30 AM</text>
+    <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="rgba(255, 255, 255, 0.5)">Duration: 12:45 • 3 speakers</text>
+  </g>
+
+  <g transform="translate(20, 235)">
+    <rect x="0" y="0" width="280" height="90" rx="8" fill="rgba(255, 255, 255, 0.05)"/>
+    <text x="15" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white">Client Review</text>
+    <text x="15" y="45" font-family="Arial, sans-serif" font-size="11" fill="rgba(255, 255, 255, 0.5)">Nov 13, 2025 • 10:00 AM</text>
+    <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="rgba(255, 255, 255, 0.5)">Duration: 45:12 • 5 speakers</text>
+  </g>
+
+  <!-- Main Content Area -->
+  <g transform="translate(360, 100)">
+    <rect x="0" y="0" width="1000" height="760" rx="12" fill="rgba(55, 65, 81, 0.3)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+
+    <!-- Meeting Header -->
+    <g transform="translate(40, 40)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">Team Standup</text>
+      <text x="0" y="28" font-family="Arial, sans-serif" font-size="13" fill="rgba(255, 255, 255, 0.6)">Nov 14, 2025 at 10:30 AM • Duration: 12:45 • 3 speakers</text>
+    </g>
+
+    <!-- Tab Bar -->
+    <g transform="translate(40, 100)">
+      <!-- Transcript Tab (Active) -->
+      <rect x="0" y="0" width="140" height="48" rx="8" fill="url(#primary)" opacity="0.9"/>
+      <text x="70" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white" text-anchor="middle">Transcript</text>
+
+      <!-- Summary Tab -->
+      <rect x="150" y="0" width="140" height="48" rx="8" fill="rgba(255, 255, 255, 0.05)"/>
+      <text x="220" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="rgba(255, 255, 255, 0.6)" text-anchor="middle">Summary</text>
+
+      <!-- Analytics Tab -->
+      <rect x="300" y="0" width="140" height="48" rx="8" fill="rgba(255, 255, 255, 0.05)"/>
+      <text x="370" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="rgba(255, 255, 255, 0.6)" text-anchor="middle">Analytics</text>
+    </g>
+
+    <!-- Transcript Content -->
+    <g transform="translate(40, 180)">
+      <!-- Entry 1 -->
+      <g>
+        <rect x="0" y="0" width="920" height="120" rx="8" fill="rgba(0, 0, 0, 0.2)"/>
+
+        <!-- Timestamp -->
+        <text x="20" y="30" font-family="monospace" font-size="12" fill="rgba(0, 217, 255, 0.6)">[00:00]</text>
+
+        <!-- Speaker Badge -->
+        <rect x="80" y="15" width="100" height="24" rx="12" fill="rgba(0, 217, 255, 0.2)"/>
+        <text x="130" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#00D9FF" text-anchor="middle">Speaker 1</text>
+
+        <!-- Transcript Text -->
+        <text x="200" y="32" font-family="Arial, sans-serif" font-size="13" fill="white">(Click to edit name)</text>
+
+        <text x="20" y="60" font-family="Arial, sans-serif" font-size="14" fill="rgba(255, 255, 255, 0.9)">Good morning everyone. Let's start with our quick standup.</text>
+        <text x="20" y="82" font-family="Arial, sans-serif" font-size="14" fill="rgba(255, 255, 255, 0.9)">Sarah, do you want to go first?</text>
+      </g>
+
+      <!-- Entry 2 -->
+      <g transform="translate(0, 140)">
+        <rect x="0" y="0" width="920" height="150" rx="8" fill="rgba(0, 0, 0, 0.2)"/>
+
+        <text x="20" y="30" font-family="monospace" font-size="12" fill="rgba(123, 47, 247, 0.6)">[00:15]</text>
+
+        <rect x="80" y="15" width="100" height="24" rx="12" fill="rgba(123, 47, 247, 0.2)"/>
+        <text x="130" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#7B2FF7" text-anchor="middle">Speaker 2</text>
+
+        <text x="200" y="32" font-family="Arial, sans-serif" font-size="13" fill="white">(Click to edit name)</text>
+
+        <text x="20" y="60" font-family="Arial, sans-serif" font-size="14" fill="rgba(255, 255, 255, 0.9)">Sure! Yesterday I completed the API integration for the payment</text>
+        <text x="20" y="82" font-family="Arial, sans-serif" font-size="14" fill="rgba(255, 255, 255, 0.9)">gateway. Today I'm going to start working on the error handling</text>
+        <text x="20" y="104" font-family="Arial, sans-serif" font-size="14" fill="rgba(255, 255, 255, 0.9)">and comprehensive test coverage for all edge cases.</text>
+      </g>
+
+      <!-- Entry 3 -->
+      <g transform="translate(0, 310)">
+        <rect x="0" y="0" width="920" height="120" rx="8" fill="rgba(0, 0, 0, 0.2)"/>
+
+        <text x="20" y="30" font-family="monospace" font-size="12" fill="rgba(0, 217, 255, 0.6)">[00:52]</text>
+
+        <rect x="80" y="15" width="100" height="24" rx="12" fill="rgba(0, 217, 255, 0.2)"/>
+        <text x="130" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#00D9FF" text-anchor="middle">Speaker 1</text>
+
+        <text x="200" y="32" font-family="Arial, sans-serif" font-size="13" fill="white">(Click to edit name)</text>
+
+        <text x="20" y="60" font-family="Arial, sans-serif" font-size="14" fill="rgba(255, 255, 255, 0.9)">Great progress! Are you on track for the Friday deployment?</text>
+        <text x="20" y="82" font-family="Arial, sans-serif" font-size="14" fill="rgba(255, 255, 255, 0.9)">We need to make sure everything is ready for the client demo.</text>
+      </g>
+
+      <!-- Entry 4 -->
+      <g transform="translate(0, 450)">
+        <rect x="0" y="0" width="920" height="120" rx="8" fill="rgba(0, 0, 0, 0.2)"/>
+
+        <text x="20" y="30" font-family="monospace" font-size="12" fill="rgba(123, 47, 247, 0.6)">[01:12]</text>
+
+        <rect x="80" y="15" width="100" height="24" rx="12" fill="rgba(123, 47, 247, 0.2)"/>
+        <text x="130" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#7B2FF7" text-anchor="middle">Speaker 2</text>
+
+        <text x="200" y="32" font-family="Arial, sans-serif" font-size="13" fill="white">(Click to edit name)</text>
+
+        <text x="20" y="60" font-family="Arial, sans-serif" font-size="14" fill="rgba(255, 255, 255, 0.9)">Yes, absolutely. I should have everything ready by Thursday</text>
+        <text x="20" y="82" font-family="Arial, sans-serif" font-size="14" fill="rgba(255, 255, 255, 0.9)">afternoon for review.</text>
+      </g>
+    </g>
+
+    <!-- Scroll Indicator -->
+    <rect x="970" y="180" width="6" height="550" rx="3" fill="rgba(255, 255, 255, 0.05)"/>
+    <rect x="970" y="180" width="6" height="150" rx="3" fill="rgba(0, 217, 255, 0.4)"/>
+  </g>
+</svg>

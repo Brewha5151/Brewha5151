@@ -33,16 +33,29 @@ Get started in 3 minutes:
 
 ## 📸 Screenshots
 
-> **Note**: Screenshots coming soon! See [VISUAL_GUIDE.md](./VISUAL_GUIDE.md) for detailed ASCII diagrams of the interface.
-
 ### Main Recording Interface
-*Live recording with audio waveform, Gemini AI transcription, and meeting notes*
+![Main Interface](screenshots/01-main-interface.svg)
+*Ready to record with audio waveform visualization and recording vault on the left*
 
-### Settings Panel
-*Choose between Gemini AI or Browser Speech Recognition, select models, and customize themes*
+### Recording in Progress with Gemini AI
+![Recording with Gemini](screenshots/02-recording-gemini.svg)
+*Live recording showing Gemini AI transcription processing every 10 seconds with real-time waveform*
 
-### Meeting Summary View
-*AI-generated summaries, action items, and speaker analytics*
+### Settings Panel - Transcription Options
+![Settings](screenshots/03-settings-transcription.svg)
+*Choose between Gemini AI or Browser Speech Recognition, select models, and customize color themes*
+
+### Meeting Transcript View
+![Transcript](screenshots/04-meeting-transcript.svg)
+*Full meeting transcript with speaker labels, timestamps, and editable speaker names*
+
+### AI-Generated Summary
+![Summary](screenshots/05-meeting-summary.svg)
+*Gemini AI-generated meeting summary with key points, decisions, and action items*
+
+### Analytics Dashboard
+![Analytics](screenshots/06-meeting-analytics.svg)
+*Speaking time distribution with visual charts showing participation percentages*
 
 ---
 

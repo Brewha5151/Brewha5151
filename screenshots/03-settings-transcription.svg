@@ -1,0 +1,131 @@
+<svg width="1400" height="900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#374151;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4b5563;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#374151;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7B2FF7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#bg)"/>
+
+  <!-- Top Navigation -->
+  <rect x="0" y="0" width="1400" height="70" fill="rgba(0, 0, 0, 0.3)"/>
+  <text x="30" y="45" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">FourBolt</text>
+
+  <!-- API Key Badge -->
+  <rect x="1050" y="23" width="120" height="24" rx="12" fill="rgba(0, 217, 255, 0.2)" stroke="#00D9FF" stroke-width="1"/>
+  <circle cx="1063" cy="35" r="4" fill="#00D9FF"/>
+  <text x="1073" y="39" font-family="Arial, sans-serif" font-size="11" fill="#00D9FF">API Key Set</text>
+
+  <!-- Back Button -->
+  <g transform="translate(360, 120)">
+    <rect x="0" y="0" width="100" height="36" rx="8" fill="rgba(255, 255, 255, 0.1)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1"/>
+    <text x="20" y="23" font-family="Arial, sans-serif" font-size="14" fill="white">← Back</text>
+  </g>
+
+  <!-- Main Settings Panel -->
+  <g transform="translate(480, 100)">
+    <rect x="0" y="0" width="800" height="760" rx="12" fill="rgba(55, 65, 81, 0.3)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+
+    <!-- Title -->
+    <text x="40" y="60" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white">Settings</text>
+
+    <!-- Transcription Settings Section -->
+    <text x="40" y="120" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="white">Transcription Settings</text>
+
+    <!-- Transcription Method Label -->
+    <text x="40" y="160" font-family="Arial, sans-serif" font-size="13" font-weight="500" fill="rgba(255, 255, 255, 0.6)">TRANSCRIPTION METHOD</text>
+
+    <!-- Option 1: Gemini AI (Selected) -->
+    <g transform="translate(40, 175)">
+      <rect x="0" y="0" width="720" height="100" rx="12" fill="rgba(123, 47, 247, 0.15)" stroke="#7B2FF7" stroke-width="2"/>
+
+      <!-- Radio button (selected) -->
+      <circle cx="25" cy="25" r="12" fill="none" stroke="#7B2FF7" stroke-width="2"/>
+      <circle cx="25" cy="25" r="6" fill="#7B2FF7"/>
+
+      <!-- Title and badge -->
+      <text x="55" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="white">✨ Gemini AI Transcription</text>
+      <rect x="280" y="12" width="110" height="24" rx="12" fill="rgba(16, 185, 129, 0.2)" stroke="#10B981" stroke-width="1"/>
+      <text x="293" y="28" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#10B981">Recommended</text>
+
+      <!-- Description -->
+      <text x="55" y="55" font-family="Arial, sans-serif" font-size="12" fill="rgba(255, 255, 255, 0.7)">• High accuracy with Google Gemini 1.5 AI</text>
+      <text x="55" y="73" font-family="Arial, sans-serif" font-size="12" fill="rgba(255, 255, 255, 0.7)">• Processes audio every 10 seconds</text>
+      <text x="55" y="91" font-family="Arial, sans-serif" font-size="12" fill="rgba(255, 255, 255, 0.7)">• Uses API quota (~$0.01 per 10 minutes)</text>
+    </g>
+
+    <!-- Option 2: Browser Speech -->
+    <g transform="translate(40, 295)">
+      <rect x="0" y="0" width="720" height="100" rx="12" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+
+      <!-- Radio button (unselected) -->
+      <circle cx="25" cy="25" r="12" fill="none" stroke="rgba(255, 255, 255, 0.3)" stroke-width="2"/>
+
+      <!-- Title -->
+      <text x="55" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="white">🎤 Browser Speech Recognition</text>
+
+      <!-- Description -->
+      <text x="55" y="55" font-family="Arial, sans-serif" font-size="12" fill="rgba(255, 255, 255, 0.7)">• Instant real-time transcription</text>
+      <text x="55" y="73" font-family="Arial, sans-serif" font-size="12" fill="rgba(255, 255, 255, 0.7)">• Completely free (no API usage)</text>
+      <text x="55" y="91" font-family="Arial, sans-serif" font-size="12" fill="rgba(255, 255, 255, 0.7)">• Chrome/Edge/Safari only (not Firefox)</text>
+    </g>
+
+    <!-- Gemini Model Selection -->
+    <text x="40" y="435" font-family="Arial, sans-serif" font-size="13" font-weight="500" fill="rgba(255, 255, 255, 0.6)">GEMINI MODEL</text>
+
+    <g transform="translate(40, 450)">
+      <rect x="0" y="0" width="350" height="50" rx="8" fill="rgba(0, 0, 0, 0.3)" stroke="rgba(123, 47, 247, 0.3)" stroke-width="1"/>
+      <text x="20" y="32" font-family="Arial, sans-serif" font-size="14" fill="white">Gemini 1.5 Flash (Recommended)</text>
+      <text x="320" y="32" font-family="Arial, sans-serif" font-size="14" fill="rgba(255, 255, 255, 0.5)">▼</text>
+    </g>
+
+    <!-- Model Info -->
+    <g transform="translate(40, 515)">
+      <rect x="0" y="0" width="720" height="70" rx="8" fill="rgba(0, 217, 255, 0.1)" stroke="rgba(0, 217, 255, 0.3)" stroke-width="1"/>
+      <text x="20" y="25" font-family="Arial, sans-serif" font-size="12" fill="rgba(0, 217, 255, 0.9)">💡 Model Comparison:</text>
+      <text x="20" y="45" font-family="Arial, sans-serif" font-size="11" fill="rgba(255, 255, 255, 0.7)">• Flash: 20x cheaper, faster processing, recommended for most meetings</text>
+      <text x="20" y="62" font-family="Arial, sans-serif" font-size="11" fill="rgba(255, 255, 255, 0.7)">• Pro: Higher accuracy, better for critical meetings with technical content</text>
+    </g>
+
+    <!-- Color Theme Section -->
+    <text x="40" y="630" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="white">Color Theme</text>
+
+    <!-- Theme Options -->
+    <g transform="translate(40, 650)">
+      <!-- Medium Gray (Selected) -->
+      <g>
+        <rect x="0" y="0" width="170" height="60" rx="8" fill="rgba(75, 85, 99, 0.5)" stroke="#00D9FF" stroke-width="2"/>
+        <circle cx="150" cy="15" r="6" fill="#00D9FF"/>
+        <text x="15" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="white">Medium Gray</text>
+        <text x="15" y="45" font-family="Arial, sans-serif" font-size="10" fill="rgba(255, 255, 255, 0.5)">(Default)</text>
+      </g>
+
+      <!-- Light -->
+      <g transform="translate(185, 0)">
+        <rect x="0" y="0" width="170" height="60" rx="8" fill="rgba(243, 244, 246, 0.1)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1"/>
+        <text x="15" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="white">Light</text>
+        <text x="15" y="45" font-family="Arial, sans-serif" font-size="10" fill="rgba(255, 255, 255, 0.5)">Bright theme</text>
+      </g>
+
+      <!-- Midnight Blue -->
+      <g transform="translate(370, 0)">
+        <rect x="0" y="0" width="170" height="60" rx="8" fill="rgba(30, 58, 138, 0.3)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1"/>
+        <text x="15" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="white">Midnight Blue</text>
+        <text x="15" y="45" font-family="Arial, sans-serif" font-size="10" fill="rgba(255, 255, 255, 0.5)">Deep blue</text>
+      </g>
+
+      <!-- Retro 90s -->
+      <g transform="translate(555, 0)">
+        <rect x="0" y="0" width="165" height="60" rx="8" fill="rgba(45, 212, 191, 0.15)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1"/>
+        <text x="15" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="white">Retro 90s</text>
+        <text x="15" y="45" font-family="Arial, sans-serif" font-size="10" fill="rgba(255, 255, 255, 0.5)">Teal & silver</text>
+      </g>
+    </g>
+  </g>
+</svg>
