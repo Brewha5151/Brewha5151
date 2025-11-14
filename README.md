@@ -1,389 +1,475 @@
-# FourBolt
+# FourBolt Meeting Transcription App
 
-A powerful cross-platform desktop application for meeting transcription, recording management, and AI-powered insights, built with Electron, React, and advanced AI models.
+A powerful browser-based meeting transcription application with **Google Gemini AI** integration for accurate speech-to-text, built with React, Vite, and TypeScript.
 
-![FourBolt](https://img.shields.io/badge/version-1.0.0-blue.svg)
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)
+![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
+![Platform](https://img.shields.io/badge/platform-Browser-lightgrey.svg)
+![Gemini](https://img.shields.io/badge/AI-Google%20Gemini%201.5-orange.svg)
 
-## Screenshots
+## 🎯 Quick Start
 
-### Recording View
-![Recording View](screenshots/recording-view.svg)
+Get started in 3 minutes:
 
-*Live recording interface with audio waveform visualization, rich text notes, and real-time transcription*
-
-### Meeting Detail View
-![Meeting Detail View](screenshots/meeting-detail-view.svg)
-
-*Comprehensive meeting view with transcript, AI summary, analytics, and action items*
-
-### Action Items Dashboard
-![Action Items Dashboard](screenshots/action-items-view.svg)
-
-*Centralized action items management with assignees, priorities, and due dates*
-
-### Settings View
-![Settings View](screenshots/settings-view.svg)
-
-*Customizable settings with multiple color themes, AI model selection, and statistics*
-
-## Features
-
-### Beautiful UI with Multiple Themes
-- **4 Professional Color Palettes**: Medium Gray (default), Light, Midnight Blue, and Retro 90s
-- **Modern Design**: Gradient-based interface with glass-morphism effects
-- **Professional Icons**: Clean, consistent iconography throughout
-- **Responsive Layout**: Smooth transitions and adaptive components
-
-### Advanced Recording
-- **Live Audio Waveform Visualization**: Real-time visual feedback during recording
-- **Pause/Resume Capability**: Full control over recording sessions
-- **Meeting Templates**: Pre-configured templates (General, Standup, Retrospective, Sales)
-- **Rich Text Notes**: Format notes with bold, italic, and lists during recording
-- **Real-Time Transcription**: See transcription appear live as you record
-
-### AI-Powered Transcription
-- **Multiple AI Models**: Choose between Claude Sonnet 4.5 and GPT-4
-- **AI-Generated Summaries**: Automatic meeting summaries with key points
-- **Custom Vocabulary**: Add domain-specific terms for better accuracy
-- **Speaker Identification**: Track and edit speaker names in transcripts
-- **Timestamp Navigation**: Click timestamps to jump to specific moments
-
-### Comprehensive Meeting Management
-- **Tabbed Meeting Views**: Switch between Transcript, Summary, and Analytics
-- **Editable Transcripts**: Click to edit speaker names and transcript content
-- **Bookmark System**: Mark important moments during meetings
-- **Search Functionality**: Find meetings quickly with powerful search
-- **Meeting History**: Browse all past recordings with metadata
-
-### Action Items Management
-- **Dedicated Dashboard**: Centralized view of all action items across meetings
-- **Assignee Tracking**: Assign tasks to specific team members
-- **Priority Levels**: Mark items as high, medium, or low priority
-- **Due Date Management**: Set and track deadlines
-- **Completion Tracking**: Check off completed items with visual progress
-- **Search & Filter**: Find action items by status, assignee, or meeting
-
-### Analytics & Insights
-- **Speaking Time Analysis**: Visual charts showing speaking distribution
-- **Meeting Statistics**: Track total words, speaker count, and action items
-- **Analytics Dashboard**: Comprehensive metrics for each meeting
-- **Progress Tracking**: Monitor overall recording statistics
-
-### Export Capabilities
-- **Multiple Formats**: Export transcripts as TXT, SRT, VTT, or PDF
-- **Download Action Items**: Export action items for task management
-- **Meeting Summaries**: Generate comprehensive meeting reports
-
-### Integration Features
-- **Calendar Integration**: Connect with your calendar for automatic meeting titles
-- **Microphone Selection**: Choose from available audio input devices
-- **Cloud Ready**: Architecture supports future cloud sync features
-
-## Installation
-
-### Prerequisites
-- Node.js 18+ and npm
-- OpenAI API key or Anthropic API key (for transcription and AI features)
-
-### Quick Start
-
-1. **Download the project:**
-   - Go to the GitHub repository
-   - Click the green "Code" button
-   - Select "Download ZIP"
-   - Extract the ZIP file to a location of your choice
-
-2. **Install dependencies:**
+1. **Get your free Gemini API key** at [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. **Clone and install**:
    ```bash
-   cd FourBolt
+   git clone <repository-url>
+   cd Brewha5151
    npm install
    ```
-
-3. **Configure your API key:**
-   - Launch the application
-   - Navigate to Settings (gear icon)
-   - Select your preferred AI model (Claude Sonnet 4.5 or GPT-4)
-   - Enter your API key
-   - Or set the `OPENAI_API_KEY` or `ANTHROPIC_API_KEY` environment variable
-
-4. **Run in development mode:**
-   ```bash
-   npm run dev
+3. **Configure API key** in `.env`:
+   ```env
+   VITE_GEMINI_API_KEY=your_api_key_here
    ```
+4. **Run the app**:
+   ```bash
+   npm run dev:renderer
+   ```
+5. **Open browser** to `http://localhost:5173`
 
-## Building for Production
+✅ **That's it!** Click Record and start transcribing.
 
-### Build for all platforms:
+---
+
+## 📸 Screenshots
+
+> **Note**: Screenshots coming soon! See [VISUAL_GUIDE.md](./VISUAL_GUIDE.md) for detailed ASCII diagrams of the interface.
+
+### Main Recording Interface
+*Live recording with audio waveform, Gemini AI transcription, and meeting notes*
+
+### Settings Panel
+*Choose between Gemini AI or Browser Speech Recognition, select models, and customize themes*
+
+### Meeting Summary View
+*AI-generated summaries, action items, and speaker analytics*
+
+---
+
+## ✨ Features
+
+### 🎙️ Dual Transcription Methods
+
+Choose the best method for your needs:
+
+**Option 1: Gemini AI Transcription** (Recommended) ✨
+- ✅ High accuracy with Google Gemini 1.5 Flash/Pro
+- ✅ Better speaker identification
+- ✅ Works in any modern browser
+- ✅ Handles technical vocabulary well
+- ⚠️ Processes audio every 10 seconds
+- ⚠️ Uses API quota (very affordable - ~$0.01 per 10 minutes)
+
+**Option 2: Browser Speech Recognition** 🎤
+- ✅ Instant, real-time transcription
+- ✅ Completely free (no API usage)
+- ✅ No internet required for Chrome
+- ⚠️ Less accurate for technical terms
+- ⚠️ Chrome/Edge/Safari only (not Firefox)
+
+### 🤖 AI-Powered Features
+
+- **Live Transcription**: See words appear as you speak
+- **Speaker Identification**: Automatically detects and labels speakers
+- **AI Summaries**: Get instant meeting summaries with Gemini
+- **Action Item Extraction**: Automatically identifies tasks and assignments
+- **Speaker Analytics**: Track speaking time and participation
+
+### 🎨 Beautiful Interface
+
+- **4 Color Themes**: Medium Gray, Light, Midnight Blue, Retro 90s
+- **Live Audio Waveform**: Visual feedback during recording
+- **Rich Text Notes**: Take formatted notes during meetings
+- **Bookmark System**: Mark important moments
+- **Responsive Design**: Works on desktop and tablet
+
+### 📊 Meeting Management
+
+- **Recording Vault**: Browse all past meetings
+- **Search & Filter**: Find meetings quickly
+- **Tabbed Views**: Transcript, Summary, Analytics
+- **Export Options**: Download transcripts in multiple formats
+- **Action Items Dashboard**: Track tasks across all meetings
+
+---
+
+## 📦 Installation
+
+### Prerequisites
+
+- **Node.js 18+** and npm ([Download here](https://nodejs.org))
+- **Google Gemini API Key** (free tier available)
+- **Modern browser**: Chrome, Edge, Safari, or Firefox
+
+### Step-by-Step Setup
+
+#### 1. Get Your Gemini API Key
+
+1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Sign in with your Google account
+3. Click **"Create API Key"** or **"Get API Key"**
+4. Copy your API key (starts with `AIza...`)
+
+**Free Tier Includes:**
+- 60 requests per minute
+- Generous monthly quota
+- Perfect for personal use
+
+#### 2. Clone the Repository
+
 ```bash
-npm run build
-npm run package
+git clone <repository-url>
+cd Brewha5151
 ```
 
-### Platform-specific builds:
+#### 3. Install Dependencies
 
-**macOS:**
 ```bash
-npm run package:mac
+npm install
 ```
 
-**Windows:**
+**Note**: If you see Electron installation errors, that's expected in this environment. The app will still work in the browser.
+
+#### 4. Configure Your API Key
+
+Create a `.env` file in the project root:
+
 ```bash
-npm run package:win
+cp .env.example .env
 ```
 
-**Linux:**
-```bash
-npm run package:linux
+Edit `.env` and add your API key:
+
+```env
+VITE_GEMINI_API_KEY=AIza...your_actual_key_here
 ```
 
-The built applications will be available in the `release/` directory.
+**⚠️ Important**:
+- Never commit `.env` to git (it's in `.gitignore`)
+- Never share your API key publicly
 
-## Usage
+#### 5. Start the Development Server
 
-### Starting a New Recording
+```bash
+npm run dev:renderer
+```
 
-1. **Set Up Your Meeting:**
-   - Enter a meeting title (or let it auto-generate from date/time)
-   - Choose a meeting template (optional):
-     - **General Meeting**: Standard meetings
-     - **Standup**: Quick team check-ins
-     - **Retrospective**: Sprint reviews
-     - **Sales**: Client calls and demos
+The app will start at **http://localhost:5173**
 
-2. **Start Recording:**
-   - Click the large microphone button
-   - Watch the live audio waveform for visual feedback
-   - See real-time transcription appear below (if enabled)
+#### 6. Allow Microphone Access
 
-3. **During the Meeting:**
-   - **Take Notes**: Use the rich text editor to jot down thoughts
-     - Format with Bold, Italic, or Lists
-     - Notes are saved automatically
-   - **Pause/Resume**: Control recording with pause button
-   - **Monitor Progress**: View elapsed time and audio levels
+When you click Record for the first time:
+1. Browser will ask for microphone permission
+2. Click **"Allow"**
+3. You're ready to record!
 
-4. **Stop & Save:**
-   - Click "Stop & Save" when finished
-   - Recording is automatically processed and added to your history
+---
 
-### Managing Meetings
+## 🎬 Usage Guide
 
-1. **Browse History:**
-   - Click "Recordings" in the sidebar
-   - See all past meetings with dates and durations
-   - Use search to find specific meetings
+See detailed usage instructions in [USAGE_GUIDE.md](./USAGE_GUIDE.md)
 
-2. **View Meeting Details:**
-   - Click any meeting card to open detailed view
-   - Switch between three tabs:
-     - **Transcript**: Full conversation with timestamps
-     - **Summary**: AI-generated summary and key points
-     - **Analytics**: Speaking time charts and statistics
+### Quick Recording Workflow
 
-3. **Edit Meeting Information:**
-   - Click the edit icon next to meeting title to rename
-   - Click speaker names to change speaker identification
-   - Add bookmarks to mark important moments
+1. **Click "Record"** button (green microphone icon)
+2. **Allow microphone access** when prompted
+3. **Start speaking** - transcription appears every 10 seconds (Gemini) or instantly (Web Speech)
+4. **Take notes** in the left panel during the meeting
+5. **Add bookmarks** to mark important moments
+6. **Click "Stop"** when finished
+7. **Wait for AI summary** to generate automatically
 
-### Working with Action Items
+### Choosing Transcription Method
 
-1. **View All Action Items:**
-   - Click "Action Items" in the sidebar
-   - See dashboard with statistics (total, completed, pending, overdue)
-   - Filter by status: All, Active, Completed, Overdue
-   - Sort by: Most Recent, Due Date, Priority, Assignee
+Click **Settings** (gear icon) to choose:
 
-2. **From Meeting Summaries:**
-   - Open any meeting's Summary tab
-   - View auto-generated action items
-   - Check off completed items
-   - See assignee, due date, and priority for each item
+- **Gemini AI Transcription** (Default)
+  - Best for: Important meetings, technical discussions
+  - Accuracy: High
+  - Cost: ~$0.01 per 10 minutes
+  - Speed: 10-second chunks
 
-3. **Add New Action Items:**
-   - During or after meetings
-   - Assign to team members
-   - Set priority and due dates
-   - Track completion status
+- **Browser Speech Recognition**
+  - Best for: Quick notes, casual recordings
+  - Accuracy: Medium
+  - Cost: Free
+  - Speed: Real-time
 
-### Customizing Settings
+### Viewing Past Meetings
 
-1. **Choose Your Theme:**
-   - Open Settings (gear icon in sidebar)
-   - Browse 4 color palette options:
-     - **Medium Gray**: Professional dark theme (default)
-     - **Light**: Clean bright theme
-     - **Midnight Blue**: Deep blue theme
-     - **Retro 90s**: Nostalgic teal and silver theme
-   - Click to apply instantly
+1. Click any meeting in the left **Recording Vault**
+2. Switch between tabs:
+   - **Transcript**: Full conversation with timestamps
+   - **Summary**: AI-generated key points and decisions
+   - **Analytics**: Speaking time charts
 
-2. **Configure AI Settings:**
-   - **Default AI Model**: Select Claude Sonnet 4.5 or GPT-4
-   - **Custom Vocabulary**: Add industry-specific terms
-     - Examples: "forklift", "pallet jack", "reach truck"
-     - Improves transcription accuracy
+---
 
-3. **Audio & Integration:**
-   - **Microphone Selection**: Choose your preferred input device
-   - **Calendar Integration**: Enable for automatic meeting titles
+## 🛠️ Troubleshooting
 
-4. **View Statistics:**
-   - Total Recordings count
-   - Total Minutes recorded
-   - Track your usage over time
+### "API Key Missing" Warning
 
-### Keyboard Shortcuts
+**Problem**: Red badge in top navigation
 
-- `Cmd/Ctrl + Shift + R` - Toggle recording (global shortcut)
-- `Cmd/Ctrl + B` - Bold text in notes
-- `Cmd/Ctrl + I` - Italic text in notes
-- `Cmd/Ctrl + Shift + 8` - Create bullet list in notes
+**Solution**:
+1. Check `.env` file exists in project root
+2. Ensure line reads: `VITE_GEMINI_API_KEY=your_key_here`
+3. No quotes, no spaces around `=`
+4. Restart dev server: `Ctrl+C` then `npm run dev:renderer`
 
-## Architecture
+### No Transcription Appearing
+
+**If using Gemini AI**:
+1. Open browser console (`F12`) and check for errors
+2. Verify API key is correct (no extra spaces/quotes)
+3. Check quota at [Google AI Studio](https://makersuite.google.com)
+4. Wait 10 seconds - Gemini processes in chunks
+5. Check internet connection
+
+**If using Web Speech**:
+1. Use Chrome, Edge, or Safari (Firefox not supported)
+2. Check microphone permissions in browser settings
+3. Speak clearly and wait 1-2 seconds
+4. Try refreshing the page
+
+### Microphone Not Working
+
+**Problem**: No waveform or audio levels showing
+
+**Solution**:
+1. Check browser permissions (click lock icon in address bar)
+2. Ensure no other app is using microphone (Zoom, Teams, etc.)
+3. Try a different browser
+4. Check system microphone settings
+5. Restart browser
+
+### "Transcription Failed" Error
+
+**Possible causes**:
+1. Invalid or expired API key
+2. No internet connection
+3. API quota exceeded
+4. Audio format not supported by browser
+
+**Solution**:
+- Check browser console for specific error message
+- Verify API key at [Google AI Studio](https://makersuite.google.com)
+- Test internet connection
+- Try recording a 10-second test meeting
+
+### Build or Install Errors
+
+**"npm install" fails**:
+```bash
+# Clear cache and retry
+rm -rf node_modules package-lock.json
+npm cache clean --force
+npm install
+```
+
+**Electron errors during install**:
+- These are expected in some environments
+- The browser app will still work fine
+- Safe to ignore if `npm run dev:renderer` works
+
+---
+
+## 📖 Complete Documentation
+
+- **[SETUP.md](./SETUP.md)** - Detailed installation and configuration guide
+- **[USAGE_GUIDE.md](./USAGE_GUIDE.md)** - Step-by-step usage instructions
+- **[VISUAL_GUIDE.md](./VISUAL_GUIDE.md)** - Visual walkthrough of the interface
+- **[SCREENSHOTS_GUIDE.md](./SCREENSHOTS_GUIDE.md)** - How to capture and add screenshots
+
+---
+
+## 💰 Cost & API Usage
+
+### Gemini API Pricing (Free Tier)
+
+**What you get for free**:
+- 60 requests per minute
+- 1,500 requests per day
+- Generous monthly quota
+
+**Typical costs with Gemini 1.5 Flash**:
+- 10-minute meeting: ~$0.01 USD
+- 30-minute meeting: ~$0.03 USD
+- 60-minute meeting: ~$0.06 USD
+
+**Cost comparison**:
+- **Gemini 1.5 Flash**: 20x cheaper, recommended for most meetings
+- **Gemini 1.5 Pro**: Higher accuracy, use for critical meetings
+
+**Free alternative**: Use Browser Speech Recognition mode (no API costs)
+
+---
+
+## 🏗️ Architecture
 
 ### Technology Stack
 
 - **Frontend**: React 18 with TypeScript
-- **Desktop Framework**: Electron 28
 - **Build Tool**: Vite 5
-- **UI Components**: Lucide React Icons
-- **Database**: SQLite (better-sqlite3)
-- **AI Services**: OpenAI API, Anthropic Claude API
-- **Audio**: Web Audio API, MediaRecorder API
+- **AI Service**: Google Gemini 1.5 (Flash/Pro)
+- **Audio Recording**: Web Audio API, MediaRecorder API
+- **Speech Recognition**: Web Speech API (fallback mode)
+- **Icons**: Lucide React
+- **Styling**: Inline React styles with theme system
 
 ### Project Structure
 
 ```
-fourbolt/
+Brewha5151/
 ├── src/
-│   ├── main/                 # Electron main process
-│   │   ├── main.ts          # Main entry point
-│   │   ├── preload.ts       # Preload script for IPC
-│   │   └── services/        # Backend services
-│   │       ├── AudioRecorder.ts
-│   │       ├── DatabaseService.ts
-│   │       └── TranscriptionService.ts
-│   └── renderer/            # React application
-│       ├── components/      # React components (legacy)
-│       ├── hooks/          # Custom React hooks
-│       ├── styles/         # CSS stylesheets
-│       ├── types/          # TypeScript definitions
-│       └── App.tsx         # Main app component (single-file)
-├── screenshots/            # UI mockups and screenshots
-├── package.json
-├── tsconfig.json
-└── vite.config.ts
+│   └── renderer/                    # React application
+│       ├── AppEnhanced.tsx          # Main application component
+│       ├── main.tsx                 # Entry point
+│       └── utils/
+│           ├── geminiTranscription.ts   # Gemini API integration
+│           └── audioRecorder.ts         # Browser audio recording
+├── .env                             # API key configuration (gitignored)
+├── .env.example                     # Template for .env
+├── package.json                     # Dependencies
+├── vite.config.ts                   # Vite configuration
+├── SETUP.md                         # Installation guide
+├── USAGE_GUIDE.md                   # Usage instructions
+├── VISUAL_GUIDE.md                  # Visual interface guide
+└── README.md                        # This file
 ```
 
-### Current Implementation
+### How It Works
 
-The app uses a **single-file React component** architecture in `App.tsx` with:
-- **25+ React hooks** for comprehensive state management
-- **Inline styling** with dynamic theme support
-- **Helper functions** for formatting, filtering, and data manipulation
-- **Sample data** included for demonstration purposes
-
-## Troubleshooting
-
-### Microphone Access Issues
-
-**macOS:**
-1. Go to System Preferences → Security & Privacy → Privacy → Microphone
-2. Ensure FourBolt has microphone access
-
-**Windows:**
-1. Go to Settings → Privacy → Microphone
-2. Allow desktop apps to access your microphone
-
-### Transcription Errors
-
-1. **"API key not set"**: Configure your API key in Settings
-2. **"Transcription failed"**: Check your internet connection and API key validity
-3. **Network errors**: Verify API service is accessible
-
-### Audio Recording Issues
-
-1. **No audio devices found**: Check system audio settings and permissions
-2. **Audio level too low**: Adjust system input volume or microphone position
-3. **Waveform not showing**: Ensure microphone permissions are granted
-
-### Application Won't Start
-
-1. **"npm install" fails**:
-   - Check Node.js version (requires 18+)
-   - Try deleting `node_modules` folder and running `npm install` again
-   - Check internet connection
-
-2. **"command not found: npm"**:
-   - Install Node.js from https://nodejs.org
-   - Restart your terminal after installation
-
-## Performance Tips
-
-### For Best Recording Quality:
-- Use a quality external microphone
-- Record in a quiet environment
-- Close unnecessary applications
-- Ensure stable internet connection for AI features
-
-### For Better Transcription:
-- Speak clearly at moderate pace
-- Minimize background noise
-- Use custom vocabulary for technical terms
-- Choose appropriate AI model for your needs
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- [OpenAI](https://openai.com/) - GPT-4 and Whisper models
-- [Anthropic](https://www.anthropic.com/) - Claude AI models
-- [Electron](https://www.electronjs.org/) - Desktop application framework
-- [React](https://reactjs.org/) - UI library
-- [Lucide](https://lucide.dev/) - Beautiful icon library
-- [Better SQLite3](https://github.com/WiseLibs/better-sqlite3) - SQLite bindings
-
-## Support
-
-For issues, questions, or suggestions:
-- Open an issue on GitHub
-- Check the [Troubleshooting](#troubleshooting) section
-- Review API documentation for your chosen AI service
-
-## What's New in v1.0.0
-
-### Advanced Features:
-- Multiple color theme support with 4 professional palettes
-- Comprehensive action items management system
-- Meeting analytics with speaking time charts
-- AI-generated summaries and key points
-- Rich text notes editor with formatting
-- Bookmark system for important moments
-- Editable speaker names
-- Meeting templates for quick setup
-- Dedicated action items dashboard
-- Custom vocabulary support
-- Multiple AI model support (Claude & GPT-4)
-
-### Enhanced UI:
-- Modern gradient-based design
-- Glass-morphism effects
-- Professional icon system
-- Responsive card layouts
-- Smooth transitions and animations
+1. **Recording**: Browser's MediaRecorder API captures microphone audio
+2. **Chunking**: Audio split into 10-second chunks (for Gemini mode)
+3. **Encoding**: Audio converted to base64 for transmission
+4. **Transcription**: Sent to Gemini 1.5 with multimodal API
+5. **Parsing**: Response parsed for speaker labels and text
+6. **Storage**: Meetings saved in browser localStorage
+7. **AI Processing**: Summaries and action items generated on-demand
 
 ---
 
-**Built with Electron and React**
+## 🔐 Privacy & Security
+
+- **Audio Recording**: Stored temporarily in browser memory, never uploaded except for transcription
+- **Transcripts**: Saved in browser localStorage (not sent to our servers)
+- **Gemini API**: Audio chunks sent to Google for processing (see [Google's AI Privacy](https://ai.google.dev/terms))
+- **API Key**: Stored in `.env` file (never committed to git)
+- **No Backend**: Everything runs in your browser
+
+**⚠️ Important**: Do not record confidential meetings without proper authorization and understanding of data processing policies.
+
+---
+
+## 🚀 Development
+
+### Available Scripts
+
+```bash
+# Start development server (browser)
+npm run dev:renderer
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Type checking
+npm run type-check
+
+# Lint code
+npm run lint
+```
+
+### Browser Compatibility
+
+| Browser | Recording | Gemini | Web Speech |
+|---------|-----------|--------|------------|
+| Chrome  | ✅        | ✅     | ✅         |
+| Edge    | ✅        | ✅     | ✅         |
+| Safari  | ✅        | ✅     | ✅         |
+| Firefox | ✅        | ✅     | ❌         |
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes
+4. Test thoroughly in multiple browsers
+5. Commit: `git commit -m 'Add amazing feature'`
+6. Push: `git push origin feature/amazing-feature`
+7. Open a Pull Request
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- **[Google Gemini](https://ai.google.dev/)** - AI transcription and summaries
+- **[React](https://react.dev/)** - UI framework
+- **[Vite](https://vitejs.dev/)** - Build tool and dev server
+- **[Lucide](https://lucide.dev/)** - Beautiful icon library
+- **[Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)** - Browser audio recording
+- **[Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)** - Browser speech recognition
+
+---
+
+## 💬 Support
+
+Need help?
+
+1. **Check Documentation**:
+   - [Installation Guide](./SETUP.md)
+   - [Usage Guide](./USAGE_GUIDE.md)
+   - [Visual Guide](./VISUAL_GUIDE.md)
+   - [Troubleshooting](#troubleshooting) (this page)
+
+2. **Common Issues**:
+   - API key not working → Check `.env` format
+   - No transcription → Wait 10 seconds for first chunk
+   - Microphone issues → Check browser permissions
+
+3. **Get Help**:
+   - Open an issue on GitHub
+   - Check [Google Gemini API docs](https://ai.google.dev/docs)
+   - Review browser console for errors (`F12`)
+
+---
+
+## 🎉 What's New in v2.0.0
+
+### Major Features:
+- ✨ **Google Gemini 1.5 Integration** - Real audio-to-text transcription
+- 🎤 **Dual Transcription Modes** - Choose between Gemini AI or Browser Speech
+- ⚡ **Browser-Based** - No desktop installation required
+- 🎨 **Visual Feedback** - Live waveform and transcription status
+- 📊 **Enhanced Analytics** - Speaker time tracking and insights
+- 🔖 **Bookmark System** - Mark important moments during recording
+- 💾 **Local Storage** - All data saved in browser (privacy-focused)
+- 🎯 **Model Selection** - Choose between Flash (fast) or Pro (accurate)
+
+### Improvements:
+- Real-time audio visualization
+- 10-second chunk processing for optimal latency
+- Automatic speaker identification
+- Meeting summaries with Gemini AI
+- Action item extraction
+- Responsive theme system
+- Error handling and retry logic
+
+---
+
+**Built with ❤️ using React, Vite, and Google Gemini AI**
+
+*Start transcribing smarter, not harder.*
