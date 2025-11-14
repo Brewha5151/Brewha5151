@@ -95,11 +95,14 @@ export default function MeetingTranscriptionApp() {
   const palette = (colorPalettes as any)[currentPalette];
 
   const [settings, setSettings] = useState({
-    defaultAiModel: 'gemini-pro',
+    defaultAiModel: 'gemini-1.5-flash',
     customVocabulary: ['forklift', 'pallet jack', 'reach truck', 'order picker'],
     selectedMicrophone: 'default',
-    calendarIntegration: false
+    calendarIntegration: false,
+    useGeminiTranscription: true  // Use Gemini for transcription instead of Web Speech API
   });
+
+  const [isTranscribing, setIsTranscribing] = useState(false);
 
   const [meetings, setMeetings] = useState<any[]>([
     // Sample meetings data (keeping from original)
@@ -152,10 +155,39 @@ export default function MeetingTranscriptionApp() {
       }
 
       audioRecorderRef.current = new AudioRecorder({
+        useGeminiTranscription: settings.useGeminiTranscription,
+
+        // Callback for Gemini transcription (audio chunks every 10 seconds)
+        onAudioChunk: async (audioBlob, timestamp) => {
+          if (!settings.useGeminiTranscription) return;
+
+          setIsTranscribing(true);
+          setLiveTranscriptText('Transcribing with Gemini AI...');
+
+          try {
+            console.log(`Processing audio chunk at ${timestamp}s, size: ${audioBlob.size} bytes`);
+            const segments = await geminiTranscription.transcribeAudio(audioBlob, timestamp);
+
+            if (segments.length > 0) {
+              setTranscript(prev => [...prev, ...segments]);
+              setLiveTranscriptText('');
+              console.log(`Added ${segments.length} transcription segments`);
+            }
+          } catch (error) {
+            console.error('Gemini transcription error:', error);
+            setLiveTranscriptText('Transcription failed. Check API key and quota.');
+          } finally {
+            setIsTranscribing(false);
+          }
+        },
+
+        // Callback for Web Speech API transcription (real-time, browser built-in)
         onTranscript: (text, isFinal) => {
+          if (settings.useGeminiTranscription) return; // Skip if using Gemini
+
           if (isFinal) {
             const newSegment: TranscriptionSegment = {
-              speaker: 'Speaker 1', // You can enhance this with speaker diarization
+              speaker: 'Speaker 1',
               time: formatTime(elapsedTime),
               timestamp: elapsedTime,
               text: text
@@ -166,6 +198,7 @@ export default function MeetingTranscriptionApp() {
             setLiveTranscriptText(text);
           }
         },
+
         onError: (error) => {
           console.error('Recording error:', error);
           alert(`Recording error: ${error.message}`);
@@ -405,22 +438,71 @@ export default function MeetingTranscriptionApp() {
             }} className="rounded-lg p-6 shadow-xl">
               <div className="flex items-center gap-3 mb-6">
                 <Mic className="w-5 h-5" style={{ color: palette.primary }} />
-                <h3 className="text-xl font-semibold" style={{ color: getTextColor('primary') }}>Recording Settings</h3>
+                <h3 className="text-xl font-semibold" style={{ color: getTextColor('primary') }}>Transcription Settings</h3>
               </div>
               <div className="space-y-4">
                 <div>
-                  <label className="block font-medium mb-2" style={{ color: getTextColor('primary') }}>AI Model</label>
+                  <label className="block font-medium mb-2" style={{ color: getTextColor('primary') }}>Transcription Method</label>
+                  <div className="space-y-3">
+                    <button
+                      onClick={() => setSettings({...settings, useGeminiTranscription: true})}
+                      className="w-full px-4 py-3 rounded-lg transition-all text-left"
+                      style={{
+                        background: settings.useGeminiTranscription ? `${palette.primary}26` : 'rgba(0,0,0,0.2)',
+                        border: `1px solid ${settings.useGeminiTranscription ? palette.primary : palette.cardBorder}`
+                      }}>
+                      <div className="flex items-start gap-3">
+                        <Sparkles className="w-5 h-5 mt-1 flex-shrink-0" style={{ color: palette.primary }} />
+                        <div className="flex-1">
+                          <div className="font-semibold mb-1" style={{ color: getTextColor('primary') }}>Gemini AI Transcription</div>
+                          <p className="text-xs" style={{ color: getTextColor('secondary') }}>
+                            Uses Google Gemini 1.5 Flash for accurate speech-to-text. Processes audio every 10 seconds. Requires API key and uses quota.
+                          </p>
+                        </div>
+                        {settings.useGeminiTranscription && (
+                          <div className="w-2 h-2 rounded-full" style={{ background: palette.primary }}></div>
+                        )}
+                      </div>
+                    </button>
+
+                    <button
+                      onClick={() => setSettings({...settings, useGeminiTranscription: false})}
+                      className="w-full px-4 py-3 rounded-lg transition-all text-left"
+                      style={{
+                        background: !settings.useGeminiTranscription ? `${palette.primary}26` : 'rgba(0,0,0,0.2)',
+                        border: `1px solid ${!settings.useGeminiTranscription ? palette.primary : palette.cardBorder}`
+                      }}>
+                      <div className="flex items-start gap-3">
+                        <Mic className="w-5 h-5 mt-1 flex-shrink-0" style={{ color: getTextColor('secondary') }} />
+                        <div className="flex-1">
+                          <div className="font-semibold mb-1" style={{ color: getTextColor('primary') }}>Browser Speech Recognition</div>
+                          <p className="text-xs" style={{ color: getTextColor('secondary') }}>
+                            Uses browser's built-in Web Speech API for real-time transcription. Free, instant, but less accurate. Chrome/Edge/Safari only.
+                          </p>
+                        </div>
+                        {!settings.useGeminiTranscription && (
+                          <div className="w-2 h-2 rounded-full" style={{ background: palette.primary }}></div>
+                        )}
+                      </div>
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block font-medium mb-2" style={{ color: getTextColor('primary') }}>Gemini Model</label>
                   <select value={settings.defaultAiModel}
                     onChange={(e) => setSettings({...settings, defaultAiModel: e.target.value})}
                     style={{ background: 'rgba(15, 30, 50, 0.4)', border: `1px solid ${palette.cardBorder}`, color: getTextColor('primary') }}
                     className="w-full rounded-lg px-4 py-2 outline-none transition-colors">
-                    <option value="gemini-pro">Gemini Pro</option>
-                    <option value="gemini-pro-vision">Gemini Pro Vision</option>
+                    <option value="gemini-1.5-flash">Gemini 1.5 Flash (Recommended - Fast & Cheap)</option>
+                    <option value="gemini-1.5-pro">Gemini 1.5 Pro (More Accurate)</option>
                   </select>
                 </div>
-                <div>
-                  <p className="text-sm" style={{ color: getTextColor('secondary') }}>
-                    Live transcription uses browser's built-in Speech Recognition API. Gemini AI is used for summaries and action item extraction.
+
+                <div style={{ background: 'rgba(251, 146, 60, 0.1)', border: '1px solid rgba(251, 146, 60, 0.3)' }}
+                     className="rounded-lg p-3">
+                  <p className="text-xs" style={{ color: '#fdba74' }}>
+                    <strong>Note:</strong> Gemini transcription uses your API quota. Flash model is recommended for best cost/performance balance.
                   </p>
                 </div>
               </div>
@@ -584,14 +666,37 @@ export default function MeetingTranscriptionApp() {
               }}>
                 <div className="pb-3 mb-3">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-base font-normal" style={{
-                      color: getTextColor('secondary'),
-                      letterSpacing: '0.01em'
-                    }}>Live Transcription</h3>
+                    <div>
+                      <h3 className="text-base font-normal" style={{
+                        color: getTextColor('secondary'),
+                        letterSpacing: '0.01em'
+                      }}>Live Transcription</h3>
+                      {isRecording && (
+                        <div className="flex items-center gap-1.5 mt-1">
+                          {settings.useGeminiTranscription ? (
+                            <>
+                              <Sparkles className="w-3 h-3" style={{ color: palette.primary }} />
+                              <span className="text-xs" style={{ color: getTextColor('tertiary') }}>
+                                Gemini AI {isTranscribing ? '(Processing...)' : '(Every 10s)'}
+                              </span>
+                            </>
+                          ) : (
+                            <>
+                              <Mic className="w-3 h-3" style={{ color: getTextColor('tertiary') }} />
+                              <span className="text-xs" style={{ color: getTextColor('tertiary') }}>
+                                Web Speech API (Real-time)
+                              </span>
+                            </>
+                          )}
+                        </div>
+                      )}
+                    </div>
                     {isRecording && !isPaused && (
                       <div className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                        <span className="text-xs" style={{ color: getTextColor('tertiary') }}>Listening...</span>
+                        <span className="text-xs" style={{ color: getTextColor('tertiary') }}>
+                          {isTranscribing ? 'Transcribing...' : 'Listening...'}
+                        </span>
                       </div>
                     )}
                   </div>

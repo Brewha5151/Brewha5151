@@ -2,6 +2,8 @@ export interface AudioRecorderConfig {
   onDataAvailable?: (blob: Blob) => void;
   onTranscript?: (text: string, isFinal: boolean) => void;
   onError?: (error: Error) => void;
+  onAudioChunk?: (blob: Blob, timestamp: number) => void; // For Gemini transcription
+  useGeminiTranscription?: boolean; // Flag to use Gemini instead of Web Speech API
 }
 
 export class AudioRecorder {
@@ -10,6 +12,8 @@ export class AudioRecorder {
   private stream: MediaStream | null = null;
   private recognition: any = null; // SpeechRecognition
   private config: AudioRecorderConfig;
+  private chunkInterval: NodeJS.Timeout | null = null;
+  private recordingStartTime: number = 0;
 
   constructor(config: AudioRecorderConfig = {}) {
     this.config = config;
@@ -37,6 +41,7 @@ export class AudioRecorder {
       });
 
       this.audioChunks = [];
+      this.recordingStartTime = Date.now();
 
       this.mediaRecorder.ondataavailable = (event) => {
         if (event.data.size > 0) {
@@ -54,10 +59,17 @@ export class AudioRecorder {
         }
       };
 
-      this.mediaRecorder.start(1000); // Collect data every second
+      // Start recording with 1 second chunks
+      this.mediaRecorder.start(1000);
 
-      // Initialize Web Speech API for real-time transcription
-      this.initializeSpeechRecognition();
+      // Choose transcription method
+      if (this.config.useGeminiTranscription) {
+        // Use Gemini API for transcription
+        this.initializeGeminiTranscription();
+      } else {
+        // Use browser's Web Speech API for real-time transcription
+        this.initializeSpeechRecognition();
+      }
     } catch (error) {
       console.error('Error starting recording:', error);
       if (this.config.onError) {
@@ -65,6 +77,49 @@ export class AudioRecorder {
       }
       throw error;
     }
+  }
+
+  /**
+   * Initialize Gemini-based transcription
+   * Sends audio chunks periodically to Gemini for transcription
+   */
+  private initializeGeminiTranscription(): void {
+    console.log('Using Gemini API for transcription');
+
+    // Send audio chunks to Gemini every 10 seconds
+    const CHUNK_INTERVAL = 10000; // 10 seconds
+    let tempChunks: Blob[] = [];
+
+    // Collect chunks
+    if (this.mediaRecorder) {
+      this.mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          this.audioChunks.push(event.data);
+          tempChunks.push(event.data);
+
+          if (this.config.onDataAvailable) {
+            this.config.onDataAvailable(event.data);
+          }
+        }
+      };
+    }
+
+    // Set up interval to send chunks to Gemini
+    this.chunkInterval = setInterval(() => {
+      if (tempChunks.length > 0 && this.config.onAudioChunk) {
+        const mimeType = this.getSupportedMimeType();
+        const chunkBlob = new Blob(tempChunks, { type: mimeType });
+        const elapsedSeconds = Math.floor((Date.now() - this.recordingStartTime) / 1000);
+
+        console.log(`Sending ${tempChunks.length} audio chunks to Gemini (${elapsedSeconds}s elapsed)`);
+
+        // Send to callback for Gemini processing
+        this.config.onAudioChunk(chunkBlob, elapsedSeconds);
+
+        // Clear temp chunks
+        tempChunks = [];
+      }
+    }, CHUNK_INTERVAL);
   }
 
   /**
@@ -167,9 +222,16 @@ export class AudioRecorder {
         return;
       }
 
+      // Clean up speech recognition
       if (this.recognition) {
         this.recognition.stop();
         this.recognition = null;
+      }
+
+      // Clean up Gemini chunk interval
+      if (this.chunkInterval) {
+        clearInterval(this.chunkInterval);
+        this.chunkInterval = null;
       }
 
       this.mediaRecorder.onstop = () => {
