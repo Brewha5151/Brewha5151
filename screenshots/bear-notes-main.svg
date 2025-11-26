@@ -1,0 +1,209 @@
+<svg width="1400" height="900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#ffffff"/>
+
+  <!-- Left Sidebar - Tags -->
+  <g id="sidebar">
+    <rect width="240" height="900" fill="#f7f7f7"/>
+    <line x1="240" y1="0" x2="240" y2="900" stroke="#e0e0e0" stroke-width="1"/>
+
+    <!-- App Title -->
+    <text x="16" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#cc4444">Bear Notes</text>
+    <line x1="0" y1="60" x2="240" y2="60" stroke="#e0e0e0" stroke-width="1"/>
+
+    <!-- All Notes -->
+    <g transform="translate(0, 70)">
+      <rect width="240" height="40" fill="#e0e0e0"/>
+      <circle cx="28" cy="20" r="8" fill="#999"/>
+      <line x1="22" y1="16" x2="24" y2="18" stroke="#f7f7f7" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="24" y1="18" x2="30" y2="12" stroke="#f7f7f7" stroke-width="1.5" stroke-linecap="round"/>
+      <rect x="20" y="22" width="16" height="8" fill="#999" opacity="0.3"/>
+      <text x="44" y="25" font-family="Arial, sans-serif" font-size="14" fill="#cc4444">All Notes</text>
+      <text x="220" y="25" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="end">7</text>
+    </g>
+
+    <!-- Pinned -->
+    <g transform="translate(0, 110)">
+      <circle cx="28" cy="20" r="6" fill="#999"/>
+      <path d="M 28 14 L 28 20 M 24 20 L 32 20 M 28 20 L 28 26" stroke="#999" stroke-width="1.5" fill="none"/>
+      <text x="44" y="25" font-family="Arial, sans-serif" font-size="14" fill="#555">Pinned</text>
+      <text x="220" y="25" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="end">2</text>
+    </g>
+
+    <!-- Divider -->
+    <line x1="16" y1="160" x2="224" y2="160" stroke="#e0e0e0" stroke-width="1"/>
+
+    <!-- TAGS Header -->
+    <text x="16" y="185" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#999" letter-spacing="0.5">TAGS</text>
+
+    <!-- Tags -->
+    <g transform="translate(0, 200)">
+      <!-- work (expanded) -->
+      <text x="16" y="20" font-family="Arial, sans-serif" font-size="12" fill="#555">▾</text>
+      <text x="32" y="20" font-family="Arial, sans-serif" font-size="14" fill="#555">#</text>
+      <text x="44" y="20" font-family="Arial, sans-serif" font-size="14" fill="#555">work</text>
+      <text x="220" y="20" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="end">3</text>
+
+      <!-- work/projects -->
+      <text x="48" y="50" font-family="Arial, sans-serif" font-size="14" fill="#555">#</text>
+      <text x="60" y="50" font-family="Arial, sans-serif" font-size="14" fill="#555">projects</text>
+      <text x="220" y="50" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="end">1</text>
+
+      <!-- work/meetings -->
+      <text x="48" y="80" font-family="Arial, sans-serif" font-size="14" fill="#555">#</text>
+      <text x="60" y="80" font-family="Arial, sans-serif" font-size="14" fill="#555">meetings</text>
+      <text x="220" y="80" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="end">1</text>
+
+      <!-- personal (collapsed) -->
+      <g transform="translate(0, 90)">
+        <text x="16" y="20" font-family="Arial, sans-serif" font-size="12" fill="#555">▸</text>
+        <text x="32" y="20" font-family="Arial, sans-serif" font-size="14" fill="#555">#</text>
+        <text x="44" y="20" font-family="Arial, sans-serif" font-size="14" fill="#555">personal</text>
+        <text x="220" y="20" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="end">3</text>
+      </g>
+
+      <!-- code -->
+      <g transform="translate(0, 120)">
+        <text x="32" y="20" font-family="Arial, sans-serif" font-size="14" fill="#555">#</text>
+        <text x="44" y="20" font-family="Arial, sans-serif" font-size="14" fill="#555">code</text>
+        <text x="220" y="20" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="end">1</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Middle Panel - Notes List -->
+  <g id="notes-list" transform="translate(240, 0)">
+    <rect width="320" height="900" fill="#fafafa"/>
+    <line x1="320" y1="0" x2="320" y2="900" stroke="#e0e0e0" stroke-width="1"/>
+
+    <!-- Search Bar -->
+    <g transform="translate(16, 16)">
+      <rect width="254" height="40" fill="#ffffff" rx="8" stroke="#e0e0e0" stroke-width="1"/>
+      <circle cx="16" cy="20" r="6" fill="none" stroke="#999" stroke-width="1.5"/>
+      <line x1="20" y1="24" x2="24" y2="28" stroke="#999" stroke-width="1.5" stroke-linecap="round"/>
+      <text x="36" y="25" font-family="Arial, sans-serif" font-size="14" fill="#999">Search notes...</text>
+    </g>
+
+    <!-- New Note Button -->
+    <rect x="278" y="16" width="40" height="40" fill="#cc4444" rx="8"/>
+    <line x1="298" y1="26" x2="298" y2="46" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="288" y1="36" x2="308" y2="36" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+
+    <line x1="0" y1="72" x2="320" y2="72" stroke="#e0e0e0" stroke-width="1"/>
+
+    <!-- Note Cards -->
+    <g transform="translate(8, 80)">
+      <!-- Selected Note Card -->
+      <g>
+        <rect width="304" height="100" fill="#fff5f5" rx="8" stroke="#cc4444" stroke-width="1"/>
+        <g transform="translate(12, 12)">
+          <circle cx="6" cy="8" r="4" fill="#cc4444"/>
+          <line x1="6" y1="4" x2="6" y2="8" stroke="#cc4444" stroke-width="1.2" fill="none"/>
+          <line x1="3" y1="8" x2="9" y2="8" stroke="#cc4444" stroke-width="1.2" fill="none"/>
+          <line x1="6" y1="8" x2="6" y2="12" stroke="#cc4444" stroke-width="1.2" fill="none"/>
+          <text x="18" y="12" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#333">Welcome to Bear Notes</text>
+          <text x="260" y="12" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="end">Nov 26</text>
+
+          <text x="0" y="35" font-family="Arial, sans-serif" font-size="13" fill="#666">This is a beautiful note-taking app inspired</text>
+          <text x="0" y="50" font-family="Arial, sans-serif" font-size="13" fill="#666">by Bear.</text>
+
+          <rect y="60" width="80" height="20" fill="#ffe5e5" rx="4"/>
+          <text x="8" y="73" font-family="Arial, sans-serif" font-size="11" fill="#cc4444">#welcome</text>
+          <rect x="88" y="60" width="100" height="20" fill="#ffe5e5" rx="4"/>
+          <text x="96" y="73" font-family="Arial, sans-serif" font-size="11" fill="#cc4444">#getting-started</text>
+        </g>
+      </g>
+
+      <!-- Note Card 2 -->
+      <g transform="translate(0, 108)">
+        <rect width="304" height="100" fill="#ffffff" rx="8" stroke="#e0e0e0" stroke-width="1"/>
+        <g transform="translate(12, 12)">
+          <text x="0" y="12" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#333">Project Ideas</text>
+          <text x="260" y="12" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="end">Nov 25</text>
+
+          <text x="0" y="35" font-family="Arial, sans-serif" font-size="13" fill="#666">Web Apps - Portfolio website redesign</text>
+          <text x="0" y="50" font-family="Arial, sans-serif" font-size="13" fill="#666">- Task management app</text>
+
+          <rect y="60" width="100" height="20" fill="#ffe5e5" rx="4"/>
+          <text x="8" y="73" font-family="Arial, sans-serif" font-size="11" fill="#cc4444">#work/projects</text>
+        </g>
+      </g>
+
+      <!-- Note Card 3 -->
+      <g transform="translate(0, 216)">
+        <rect width="304" height="100" fill="#ffffff" rx="8" stroke="#e0e0e0" stroke-width="1"/>
+        <g transform="translate(12, 12)">
+          <text x="0" y="12" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#333">Meeting Notes - Q4</text>
+          <text x="260" y="12" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="end">Nov 24</text>
+
+          <text x="0" y="35" font-family="Arial, sans-serif" font-size="13" fill="#666">Date: November 26, 2025</text>
+          <text x="0" y="50" font-family="Arial, sans-serif" font-size="13" fill="#666">Attendees - Sarah (Product)</text>
+
+          <rect y="60" width="110" height="20" fill="#ffe5e5" rx="4"/>
+          <text x="8" y="73" font-family="Arial, sans-serif" font-size="11" fill="#cc4444">#work/meetings</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Panel - Editor -->
+  <g id="editor" transform="translate(560, 0)">
+    <rect width="840" height="900" fill="#ffffff"/>
+
+    <!-- Editor Header -->
+    <rect width="840" height="60" fill="#ffffff"/>
+    <line x1="0" y1="60" x2="840" y2="60" stroke="#e0e0e0" stroke-width="1"/>
+
+    <!-- Action Buttons -->
+    <g transform="translate(24, 20)">
+      <rect width="36" height="36" fill="transparent" rx="6" stroke="#e0e0e0" stroke-width="1"/>
+      <circle cx="18" cy="14" r="3" fill="#666"/>
+      <line x1="18" y1="14" x2="18" y2="18" stroke="#666" stroke-width="1.2" fill="none"/>
+      <line x1="15" y1="18" x2="21" y2="18" stroke="#666" stroke-width="1.2" fill="none"/>
+      <line x1="18" y1="18" x2="18" y2="22" stroke="#666" stroke-width="1.2" fill="none"/>
+    </g>
+
+    <g transform="translate(68, 20)">
+      <rect width="36" height="36" fill="transparent" rx="6" stroke="#e0e0e0" stroke-width="1"/>
+      <circle cx="18" cy="18" r="7" fill="none" stroke="#666" stroke-width="1.5"/>
+      <circle cx="18" cy="18" r="3" fill="#666"/>
+    </g>
+
+    <g transform="translate(112, 20)">
+      <rect width="36" height="36" fill="transparent" rx="6" stroke="#e0e0e0" stroke-width="1"/>
+      <path d="M 14 14 L 14 26 L 22 26 L 22 18 L 18 14 Z" fill="none" stroke="#666" stroke-width="1.5"/>
+      <line x1="18" y1="14" x2="18" y2="18" stroke="#666" stroke-width="1.5"/>
+      <line x1="18" y1="18" x2="22" y2="18" stroke="#666" stroke-width="1.5"/>
+    </g>
+
+    <text x="780" y="35" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="end">Nov 26, 2025 2:30 PM</text>
+
+    <!-- Editor Content -->
+    <g transform="translate(24, 84)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#333"># Welcome to Bear Notes</text>
+
+      <text x="0" y="50" font-family="Arial, sans-serif" font-size="16" fill="#333">This is a beautiful note-taking app inspired by Bear.</text>
+
+      <text x="0" y="100" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#333">## Features</text>
+      <text x="0" y="130" font-family="Arial, sans-serif" font-size="16" fill="#333">- </text>
+      <text x="20" y="130" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#333">Markdown support</text>
+      <text x="160" y="130" font-family="Arial, sans-serif" font-size="16" fill="#333"> with live preview</text>
+
+      <text x="0" y="160" font-family="Arial, sans-serif" font-size="16" fill="#333">- </text>
+      <text x="20" y="160" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#333">Tag-based organization</text>
+      <text x="200" y="160" font-family="Arial, sans-serif" font-size="16" fill="#333"> using #hashtags</text>
+
+      <text x="0" y="190" font-family="Arial, sans-serif" font-size="16" fill="#333">- </text>
+      <text x="20" y="190" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#333">Nested tags</text>
+      <text x="130" y="190" font-family="Arial, sans-serif" font-size="16" fill="#333"> like #work/projects</text>
+
+      <text x="0" y="220" font-family="Arial, sans-serif" font-size="16" fill="#333">- Clean, minimal design</text>
+      <text x="0" y="250" font-family="Arial, sans-serif" font-size="16" fill="#333">- Fast and responsive</text>
+
+      <text x="0" y="300" font-family="Arial, sans-serif" font-size="16" fill="#333">Try creating your first note!</text>
+
+      <text x="0" y="350" font-family="Arial, sans-serif" font-size="16" fill="#cc4444">#welcome</text>
+      <text x="100" y="350" font-family="Arial, sans-serif" font-size="16" fill="#cc4444">#getting-started</text>
+    </g>
+  </g>
+</svg>

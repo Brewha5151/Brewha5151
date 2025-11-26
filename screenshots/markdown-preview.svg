@@ -1,0 +1,45 @@
+<svg width="840" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="840" height="600" fill="#ffffff"/>
+
+  <!-- Editor Header -->
+  <rect width="840" height="60" fill="#ffffff"/>
+  <line x1="0" y1="60" x2="840" y2="60" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Preview Mode Button (active) -->
+  <g transform="translate(68, 20)">
+    <rect width="36" height="36" fill="#f0f0f0" rx="6" stroke="#e0e0e0" stroke-width="1"/>
+    <circle cx="18" cy="18" r="7" fill="none" stroke="#cc4444" stroke-width="1.8"/>
+    <circle cx="18" cy="18" r="3" fill="#cc4444"/>
+  </g>
+
+  <text x="120" y="40" font-family="Arial, sans-serif" font-size="14" fill="#666">Preview Mode</text>
+
+  <text x="780" y="35" font-family="Arial, sans-serif" font-size="12" fill="#999" text-anchor="end">Nov 26, 2025</text>
+
+  <!-- Preview Content -->
+  <g transform="translate(24, 84)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#333">Code Snippets</text>
+
+    <text x="0" y="60" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#333">React Hook - useLocalStorage</text>
+
+    <!-- Code Block -->
+    <rect y="90" width="780" height="220" fill="#f5f5f5" rx="8" stroke="#e0e0e0" stroke-width="1"/>
+    <text x="16" y="115" font-family="Monaco, monospace" font-size="13" fill="#666">function useLocalStorage(key, initialValue) {</text>
+    <text x="16" y="135" font-family="Monaco, monospace" font-size="13" fill="#666">  const [storedValue, setStoredValue] = useState(() => {</text>
+    <text x="16" y="155" font-family="Monaco, monospace" font-size="13" fill="#666">    try {</text>
+    <text x="16" y="175" font-family="Monaco, monospace" font-size="13" fill="#666">      const item = window.localStorage.getItem(key);</text>
+    <text x="16" y="195" font-family="Monaco, monospace" font-size="13" fill="#666">      return item ? JSON.parse(item) : initialValue;</text>
+    <text x="16" y="215" font-family="Monaco, monospace" font-size="13" fill="#666">    } catch (error) {</text>
+    <text x="16" y="235" font-family="Monaco, monospace" font-size="13" fill="#666">      return initialValue;</text>
+    <text x="16" y="255" font-family="Monaco, monospace" font-size="13" fill="#666">    }</text>
+    <text x="16" y="275" font-family="Monaco, monospace" font-size="13" fill="#666">  });</text>
+    <text x="16" y="295" font-family="Monaco, monospace" font-size="13" fill="#666">}</text>
+
+    <text x="0" y="350" font-family="Arial, sans-serif" font-size="16" fill="#333">This hook allows you to persist state in localStorage.</text>
+
+    <text x="0" y="410" font-family="Arial, sans-serif" font-size="16" fill="#cc4444">#code/snippets</text>
+    <text x="140" y="410" font-family="Arial, sans-serif" font-size="16" fill="#cc4444">#javascript</text>
+    <text x="260" y="410" font-family="Arial, sans-serif" font-size="16" fill="#cc4444">#react</text>
+  </g>
+</svg>

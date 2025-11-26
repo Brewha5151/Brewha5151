@@ -5,6 +5,20 @@ A beautiful, minimalist note-taking application inspired by Bear, built with Ele
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)
 
+## Screenshots
+
+### Main Interface
+![Bear Notes Main Interface](screenshots/bear-notes-main.svg)
+*Three-pane layout with tags sidebar, notes list, and markdown editor*
+
+### Markdown Preview
+![Markdown Preview Mode](screenshots/markdown-preview.svg)
+*Beautiful markdown rendering with code syntax highlighting*
+
+### Tag Hierarchy
+![Tag Organization](screenshots/tag-hierarchy.svg)
+*Nested tag support for powerful organization*
+
 ## Features
 
 ### Beautiful Clean Design
