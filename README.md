@@ -1,113 +1,66 @@
-# FourBolt
+# Bear Notes
 
-A powerful cross-platform desktop application for meeting transcription, recording management, and AI-powered insights, built with Electron, React, and advanced AI models.
+A beautiful, minimalist note-taking application inspired by Bear, built with Electron, React, and TypeScript. Features markdown support, tag-based organization, and a clean three-pane interface.
 
-![FourBolt](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)
-
-## Screenshots
-
-### Recording View
-![Recording View](screenshots/recording-view.svg)
-
-*Live recording interface with audio waveform visualization, rich text notes, and real-time transcription*
-
-### Meeting Detail View
-![Meeting Detail View](screenshots/meeting-detail-view.svg)
-
-*Comprehensive meeting view with transcript, AI summary, analytics, and action items*
-
-### Action Items Dashboard
-![Action Items Dashboard](screenshots/action-items-view.svg)
-
-*Centralized action items management with assignees, priorities, and due dates*
-
-### Settings View
-![Settings View](screenshots/settings-view.svg)
-
-*Customizable settings with multiple color themes, AI model selection, and statistics*
 
 ## Features
 
-### Beautiful UI with Multiple Themes
-- **4 Professional Color Palettes**: Medium Gray (default), Light, Midnight Blue, and Retro 90s
-- **Modern Design**: Gradient-based interface with glass-morphism effects
-- **Professional Icons**: Clean, consistent iconography throughout
-- **Responsive Layout**: Smooth transitions and adaptive components
+### Beautiful Clean Design
+- **Three-Pane Layout**: Tags sidebar, notes list, and editor
+- **Bear-Inspired UI**: Minimalist design with red accent colors
+- **Clean Typography**: Professional fonts and spacing
+- **Responsive Interface**: Smooth transitions and interactions
 
-### Advanced Recording
-- **Live Audio Waveform Visualization**: Real-time visual feedback during recording
-- **Pause/Resume Capability**: Full control over recording sessions
-- **Meeting Templates**: Pre-configured templates (General, Standup, Retrospective, Sales)
-- **Rich Text Notes**: Format notes with bold, italic, and lists during recording
-- **Real-Time Transcription**: See transcription appear live as you record
+### Powerful Note-Taking
+- **Markdown Support**: Full markdown editing with live preview
+- **Tag-Based Organization**: Use #tags anywhere in your notes
+- **Nested Tags**: Create hierarchies with #work/projects
+- **Auto-Tag Extraction**: Tags are automatically detected from content
+- **Pin Important Notes**: Keep frequently used notes at the top
+- **Fast Search**: Instantly find notes by title or content
 
-### AI-Powered Transcription
-- **Multiple AI Models**: Choose between Claude Sonnet 4.5 and GPT-4
-- **AI-Generated Summaries**: Automatic meeting summaries with key points
-- **Custom Vocabulary**: Add domain-specific terms for better accuracy
-- **Speaker Identification**: Track and edit speaker names in transcripts
-- **Timestamp Navigation**: Click timestamps to jump to specific moments
+### Tag Hierarchy
+- **Automatic Organization**: Tags with slashes create hierarchies
+- **Expandable Tree View**: Navigate nested tags easily
+- **Tag Counts**: See how many notes use each tag
+- **Click to Filter**: View all notes with a specific tag
 
-### Comprehensive Meeting Management
-- **Tabbed Meeting Views**: Switch between Transcript, Summary, and Analytics
-- **Editable Transcripts**: Click to edit speaker names and transcript content
-- **Bookmark System**: Mark important moments during meetings
-- **Search Functionality**: Find meetings quickly with powerful search
-- **Meeting History**: Browse all past recordings with metadata
+### Markdown Editor
+- **Live Preview**: Toggle between edit and preview modes
+- **Clean Interface**: Distraction-free writing experience
+- **Code Blocks**: Syntax highlighting support
+- **Lists and Formatting**: Full markdown feature set
+- **Auto-Save**: Notes save automatically as you type
 
-### Action Items Management
-- **Dedicated Dashboard**: Centralized view of all action items across meetings
-- **Assignee Tracking**: Assign tasks to specific team members
-- **Priority Levels**: Mark items as high, medium, or low priority
-- **Due Date Management**: Set and track deadlines
-- **Completion Tracking**: Check off completed items with visual progress
-- **Search & Filter**: Find action items by status, assignee, or meeting
-
-### Analytics & Insights
-- **Speaking Time Analysis**: Visual charts showing speaking distribution
-- **Meeting Statistics**: Track total words, speaker count, and action items
-- **Analytics Dashboard**: Comprehensive metrics for each meeting
-- **Progress Tracking**: Monitor overall recording statistics
-
-### Export Capabilities
-- **Multiple Formats**: Export transcripts as TXT, SRT, VTT, or PDF
-- **Download Action Items**: Export action items for task management
-- **Meeting Summaries**: Generate comprehensive meeting reports
-
-### Integration Features
-- **Calendar Integration**: Connect with your calendar for automatic meeting titles
-- **Microphone Selection**: Choose from available audio input devices
-- **Cloud Ready**: Architecture supports future cloud sync features
+### Smart Features
+- **Keyboard Shortcuts**:
+  - `Cmd/Ctrl + N` - Create new note
+  - `Cmd/Ctrl + F` - Focus search
+- **Pin Notes**: Mark important notes to keep them at the top
+- **Note Metadata**: Automatic creation and update timestamps
+- **Sample Notes**: Pre-loaded examples to get you started
 
 ## Installation
 
 ### Prerequisites
 - Node.js 18+ and npm
-- OpenAI API key or Anthropic API key (for transcription and AI features)
 
 ### Quick Start
 
 1. **Download the project:**
-   - Go to the GitHub repository
-   - Click the green "Code" button
-   - Select "Download ZIP"
-   - Extract the ZIP file to a location of your choice
+   ```bash
+   git clone <repository-url>
+   cd bear-notes
+   ```
 
 2. **Install dependencies:**
    ```bash
-   cd FourBolt
    npm install
    ```
 
-3. **Configure your API key:**
-   - Launch the application
-   - Navigate to Settings (gear icon)
-   - Select your preferred AI model (Claude Sonnet 4.5 or GPT-4)
-   - Enter your API key
-   - Or set the `OPENAI_API_KEY` or `ANTHROPIC_API_KEY` environment variable
-
-4. **Run in development mode:**
+3. **Run in development mode:**
    ```bash
    npm run dev
    ```
@@ -141,103 +94,72 @@ The built applications will be available in the `release/` directory.
 
 ## Usage
 
-### Starting a New Recording
+### Creating Your First Note
 
-1. **Set Up Your Meeting:**
-   - Enter a meeting title (or let it auto-generate from date/time)
-   - Choose a meeting template (optional):
-     - **General Meeting**: Standard meetings
-     - **Standup**: Quick team check-ins
-     - **Retrospective**: Sprint reviews
-     - **Sales**: Client calls and demos
+1. **Create a New Note:**
+   - Click the red "+" button in the notes list
+   - Or press `Cmd/Ctrl + N`
 
-2. **Start Recording:**
-   - Click the large microphone button
-   - Watch the live audio waveform for visual feedback
-   - See real-time transcription appear below (if enabled)
+2. **Start Writing:**
+   - The first line becomes your note title
+   - Use markdown for formatting
+   - Add #tags anywhere in your note
 
-3. **During the Meeting:**
-   - **Take Notes**: Use the rich text editor to jot down thoughts
-     - Format with Bold, Italic, or Lists
-     - Notes are saved automatically
-   - **Pause/Resume**: Control recording with pause button
-   - **Monitor Progress**: View elapsed time and audio levels
+3. **Example Note:**
+   ```markdown
+   # My First Note
 
-4. **Stop & Save:**
-   - Click "Stop & Save" when finished
-   - Recording is automatically processed and added to your history
+   This is a **bold** statement and this is *italic*.
 
-### Managing Meetings
+   ## Features I Love
+   - Markdown support
+   - Tag organization
+   - Clean design
 
-1. **Browse History:**
-   - Click "Recordings" in the sidebar
-   - See all past meetings with dates and durations
-   - Use search to find specific meetings
+   #personal #notes #getting-started
+   ```
 
-2. **View Meeting Details:**
-   - Click any meeting card to open detailed view
-   - Switch between three tabs:
-     - **Transcript**: Full conversation with timestamps
-     - **Summary**: AI-generated summary and key points
-     - **Analytics**: Speaking time charts and statistics
+### Organizing with Tags
 
-3. **Edit Meeting Information:**
-   - Click the edit icon next to meeting title to rename
-   - Click speaker names to change speaker identification
-   - Add bookmarks to mark important moments
+1. **Adding Tags:**
+   - Simply type `#tagname` anywhere in your note
+   - Tags are automatically extracted and shown in the sidebar
 
-### Working with Action Items
+2. **Creating Nested Tags:**
+   - Use slashes: `#work/projects` or `#personal/reading`
+   - The sidebar shows these as expandable hierarchies
 
-1. **View All Action Items:**
-   - Click "Action Items" in the sidebar
-   - See dashboard with statistics (total, completed, pending, overdue)
-   - Filter by status: All, Active, Completed, Overdue
-   - Sort by: Most Recent, Due Date, Priority, Assignee
+3. **Filtering by Tags:**
+   - Click any tag in the sidebar to filter notes
+   - Click again to show all notes
 
-2. **From Meeting Summaries:**
-   - Open any meeting's Summary tab
-   - View auto-generated action items
-   - Check off completed items
-   - See assignee, due date, and priority for each item
+### Working with Notes
 
-3. **Add New Action Items:**
-   - During or after meetings
-   - Assign to team members
-   - Set priority and due dates
-   - Track completion status
+1. **Edit Mode:**
+   - Default view for writing
+   - Plain text with markdown syntax
+   - Auto-saves as you type
 
-### Customizing Settings
+2. **Preview Mode:**
+   - Click the eye icon to preview
+   - See your markdown rendered beautifully
+   - Click edit icon to return
 
-1. **Choose Your Theme:**
-   - Open Settings (gear icon in sidebar)
-   - Browse 4 color palette options:
-     - **Medium Gray**: Professional dark theme (default)
-     - **Light**: Clean bright theme
-     - **Midnight Blue**: Deep blue theme
-     - **Retro 90s**: Nostalgic teal and silver theme
-   - Click to apply instantly
+3. **Pin Notes:**
+   - Click the pin icon to pin important notes
+   - Pinned notes appear at the top of the list
+   - Perfect for quick reference notes
 
-2. **Configure AI Settings:**
-   - **Default AI Model**: Select Claude Sonnet 4.5 or GPT-4
-   - **Custom Vocabulary**: Add industry-specific terms
-     - Examples: "forklift", "pallet jack", "reach truck"
-     - Improves transcription accuracy
-
-3. **Audio & Integration:**
-   - **Microphone Selection**: Choose your preferred input device
-   - **Calendar Integration**: Enable for automatic meeting titles
-
-4. **View Statistics:**
-   - Total Recordings count
-   - Total Minutes recorded
-   - Track your usage over time
+4. **Search Notes:**
+   - Use the search bar to find notes
+   - Searches both titles and content
+   - Results update as you type
 
 ### Keyboard Shortcuts
 
-- `Cmd/Ctrl + Shift + R` - Toggle recording (global shortcut)
-- `Cmd/Ctrl + B` - Bold text in notes
-- `Cmd/Ctrl + I` - Italic text in notes
-- `Cmd/Ctrl + Shift + 8` - Create bullet list in notes
+- `Cmd/Ctrl + N` - Create new note
+- `Cmd/Ctrl + F` - Focus search bar
+- Click editor to start typing
 
 ## Architecture
 
@@ -248,89 +170,116 @@ The built applications will be available in the `release/` directory.
 - **Build Tool**: Vite 5
 - **UI Components**: Lucide React Icons
 - **Database**: SQLite (better-sqlite3)
-- **AI Services**: OpenAI API, Anthropic Claude API
-- **Audio**: Web Audio API, MediaRecorder API
+- **Markdown**: Marked library for rendering
 
 ### Project Structure
 
 ```
-fourbolt/
+bear-notes/
 ├── src/
 │   ├── main/                 # Electron main process
 │   │   ├── main.ts          # Main entry point
 │   │   ├── preload.ts       # Preload script for IPC
 │   │   └── services/        # Backend services
-│   │       ├── AudioRecorder.ts
-│   │       ├── DatabaseService.ts
-│   │       └── TranscriptionService.ts
+│   │       └── DatabaseService.ts
 │   └── renderer/            # React application
-│       ├── components/      # React components (legacy)
-│       ├── hooks/          # Custom React hooks
-│       ├── styles/         # CSS stylesheets
-│       ├── types/          # TypeScript definitions
-│       └── App.tsx         # Main app component (single-file)
-├── screenshots/            # UI mockups and screenshots
+│       ├── App.tsx          # Main app component
+│       ├── main.tsx         # React entry point
+│       └── index.html       # HTML template
 ├── package.json
 ├── tsconfig.json
 └── vite.config.ts
 ```
 
-### Current Implementation
+### Database Schema
 
-The app uses a **single-file React component** architecture in `App.tsx` with:
-- **25+ React hooks** for comprehensive state management
-- **Inline styling** with dynamic theme support
-- **Helper functions** for formatting, filtering, and data manipulation
-- **Sample data** included for demonstration purposes
+Notes are stored in a local SQLite database with the following structure:
+
+- **id**: Unique identifier
+- **title**: Note title (auto-extracted from first line)
+- **content**: Full markdown content
+- **tags**: JSON array of tags
+- **isPinned**: Boolean for pinned status
+- **isArchived**: Boolean for archived status
+- **isTrashed**: Boolean for trash status
+- **createdAt**: ISO timestamp
+- **updatedAt**: ISO timestamp
+
+## Sample Notes
+
+The app comes with 7 sample notes to help you get started:
+
+1. **Welcome to Bear Notes** - Introduction and features
+2. **Project Ideas** - Example of nested tags
+3. **Meeting Notes** - Template for meetings
+4. **Reading List** - Book tracking example
+5. **Grocery List** - Simple list example
+6. **Code Snippets** - Code blocks example
+7. **Travel Plans** - Detailed planning example
+
+## Tips & Best Practices
+
+### Tagging Strategy
+
+- Use broad tags like `#work`, `#personal`, `#ideas`
+- Create specific subtags like `#work/meetings`, `#work/projects`
+- Don't overuse tags - 2-5 tags per note is usually enough
+- Be consistent with tag names
+
+### Note Organization
+
+- Pin your most-used reference notes
+- Use the first line as a clear, descriptive title
+- Keep individual notes focused on one topic
+- Use markdown headers for structure
+
+### Markdown Tips
+
+```markdown
+# Heading 1
+## Heading 2
+### Heading 3
+
+**Bold text**
+*Italic text*
+`Code inline`
+
+- Bullet list
+- Another item
+
+1. Numbered list
+2. Another item
+
+> Quote block
+
+[Link text](https://example.com)
+```
 
 ## Troubleshooting
-
-### Microphone Access Issues
-
-**macOS:**
-1. Go to System Preferences → Security & Privacy → Privacy → Microphone
-2. Ensure FourBolt has microphone access
-
-**Windows:**
-1. Go to Settings → Privacy → Microphone
-2. Allow desktop apps to access your microphone
-
-### Transcription Errors
-
-1. **"API key not set"**: Configure your API key in Settings
-2. **"Transcription failed"**: Check your internet connection and API key validity
-3. **Network errors**: Verify API service is accessible
-
-### Audio Recording Issues
-
-1. **No audio devices found**: Check system audio settings and permissions
-2. **Audio level too low**: Adjust system input volume or microphone position
-3. **Waveform not showing**: Ensure microphone permissions are granted
 
 ### Application Won't Start
 
 1. **"npm install" fails**:
    - Check Node.js version (requires 18+)
-   - Try deleting `node_modules` folder and running `npm install` again
+   - Delete `node_modules` folder and run `npm install` again
    - Check internet connection
 
-2. **"command not found: npm"**:
-   - Install Node.js from https://nodejs.org
-   - Restart your terminal after installation
+2. **Database errors**:
+   - The database is created automatically on first run
+   - Located in your user data directory
+   - Delete database file to reset (you'll lose notes)
 
-## Performance Tips
+### Notes Not Saving
 
-### For Best Recording Quality:
-- Use a quality external microphone
-- Record in a quiet environment
-- Close unnecessary applications
-- Ensure stable internet connection for AI features
+1. Check file permissions in user data directory
+2. Restart the application
+3. Check console for error messages
 
-### For Better Transcription:
-- Speak clearly at moderate pace
-- Minimize background noise
-- Use custom vocabulary for technical terms
-- Choose appropriate AI model for your needs
+### Search Not Working
+
+1. Ensure you're typing in the search box
+2. Search is case-insensitive
+3. Try searching for partial words
 
 ## Contributing
 
@@ -348,42 +297,36 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- [OpenAI](https://openai.com/) - GPT-4 and Whisper models
-- [Anthropic](https://www.anthropic.com/) - Claude AI models
+- [Bear](https://bear.app/) - Inspiration for design and functionality
 - [Electron](https://www.electronjs.org/) - Desktop application framework
 - [React](https://reactjs.org/) - UI library
+- [Marked](https://marked.js.org/) - Markdown parser
 - [Lucide](https://lucide.dev/) - Beautiful icon library
 - [Better SQLite3](https://github.com/WiseLibs/better-sqlite3) - SQLite bindings
+
+## Roadmap
+
+Future features planned:
+
+- Export notes to PDF, HTML, or plain text
+- Import notes from other apps
+- Dark mode theme
+- Note templates
+- Advanced search with filters
+- Note linking
+- Attachments and images
+- Cloud sync (optional)
+- Mobile companion app
 
 ## Support
 
 For issues, questions, or suggestions:
 - Open an issue on GitHub
 - Check the [Troubleshooting](#troubleshooting) section
-- Review API documentation for your chosen AI service
-
-## What's New in v1.0.0
-
-### Advanced Features:
-- Multiple color theme support with 4 professional palettes
-- Comprehensive action items management system
-- Meeting analytics with speaking time charts
-- AI-generated summaries and key points
-- Rich text notes editor with formatting
-- Bookmark system for important moments
-- Editable speaker names
-- Meeting templates for quick setup
-- Dedicated action items dashboard
-- Custom vocabulary support
-- Multiple AI model support (Claude & GPT-4)
-
-### Enhanced UI:
-- Modern gradient-based design
-- Glass-morphism effects
-- Professional icon system
-- Responsive card layouts
-- Smooth transitions and animations
+- Review the sample notes for examples
 
 ---
 
-**Built with Electron and React**
+**Built with Electron, React, and TypeScript**
+
+Enjoy beautiful, organized note-taking!

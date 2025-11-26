@@ -1,186 +1,414 @@
 import Database from 'better-sqlite3';
 import path from 'path';
 import { app } from 'electron';
-import fs from 'fs';
 
-export interface Recording {
+export interface Note {
   id: string;
   title: string;
-  filePath: string;
-  duration: number;
+  content: string;
+  tags: string[];
+  isPinned: boolean;
+  isArchived: boolean;
+  isTrashed: boolean;
   createdAt: string;
-  tags?: string[];
-  notes?: string;
-  transcript?: string;
-  transcriptSegments?: TranscriptSegment[];
-  language?: string;
-  modelUsed?: string;
+  updatedAt: string;
 }
 
-export interface TranscriptSegment {
-  id: string;
-  text: string;
-  startTime: number;
-  endTime: number;
-  confidence?: number;
-  speaker?: string;
+export interface Tag {
+  name: string;
+  noteCount: number;
+  color?: string;
 }
 
 export class DatabaseService {
   private db: Database.Database;
 
   constructor() {
-    const dbPath = path.join(app.getPath('userData'), 'recordings.db');
+    const dbPath = path.join(app.getPath('userData'), 'bear-notes.db');
     this.db = new Database(dbPath);
     this.initDatabase();
+    this.seedSampleData();
   }
 
   private initDatabase() {
-    // Create recordings table
+    // Create notes table
     this.db.exec(`
-      CREATE TABLE IF NOT EXISTS recordings (
+      CREATE TABLE IF NOT EXISTS notes (
         id TEXT PRIMARY KEY,
         title TEXT NOT NULL,
-        filePath TEXT NOT NULL,
-        duration INTEGER NOT NULL,
-        createdAt TEXT NOT NULL,
+        content TEXT NOT NULL,
         tags TEXT,
-        notes TEXT,
-        transcript TEXT,
-        transcriptSegments TEXT,
-        language TEXT,
-        modelUsed TEXT
+        isPinned INTEGER DEFAULT 0,
+        isArchived INTEGER DEFAULT 0,
+        isTrashed INTEGER DEFAULT 0,
+        createdAt TEXT NOT NULL,
+        updatedAt TEXT NOT NULL
       )
     `);
 
-    // Create index for faster searches
+    // Create indices for faster searches
     this.db.exec(`
-      CREATE INDEX IF NOT EXISTS idx_recordings_createdAt ON recordings(createdAt DESC);
+      CREATE INDEX IF NOT EXISTS idx_notes_updatedAt ON notes(updatedAt DESC);
     `);
 
     this.db.exec(`
-      CREATE INDEX IF NOT EXISTS idx_recordings_title ON recordings(title);
+      CREATE INDEX IF NOT EXISTS idx_notes_title ON notes(title);
+    `);
+
+    this.db.exec(`
+      CREATE INDEX IF NOT EXISTS idx_notes_tags ON notes(tags);
     `);
   }
 
-  saveRecording(recording: Recording): Recording {
+  private seedSampleData() {
+    // Check if we already have data
+    const count = this.db.prepare('SELECT COUNT(*) as count FROM notes').get() as { count: number };
+    if (count.count > 0) return;
+
+    // Sample notes with various tags
+    const sampleNotes: Note[] = [
+      {
+        id: '1',
+        title: 'Welcome to Bear Notes',
+        content: `# Welcome to Bear Notes
+
+This is a beautiful note-taking app inspired by Bear.
+
+## Features
+- **Markdown support** with live preview
+- **Tag-based organization** using #hashtags
+- **Nested tags** like #work/projects
+- Clean, minimal design
+- Fast and responsive
+
+Try creating your first note!
+
+#welcome #getting-started`,
+        tags: ['welcome', 'getting-started'],
+        isPinned: true,
+        isArchived: false,
+        isTrashed: false,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      },
+      {
+        id: '2',
+        title: 'Project Ideas',
+        content: `# Project Ideas
+
+## Web Apps
+- Portfolio website redesign
+- Task management app
+- Recipe collection
+
+## Mobile Apps
+- Fitness tracker
+- Reading list manager
+
+#work/projects #ideas`,
+        tags: ['work/projects', 'ideas'],
+        isPinned: false,
+        isArchived: false,
+        isTrashed: false,
+        createdAt: new Date(Date.now() - 86400000).toISOString(),
+        updatedAt: new Date(Date.now() - 86400000).toISOString(),
+      },
+      {
+        id: '3',
+        title: 'Meeting Notes - Q4 Planning',
+        content: `# Q4 Planning Meeting
+**Date:** November 26, 2025
+
+## Attendees
+- Sarah (Product)
+- Mike (Engineering)
+- Lisa (Design)
+
+## Key Points
+- Launch new feature by December
+- Focus on mobile experience
+- Increase performance by 30%
+
+## Action Items
+- [ ] Mike: Set up CI/CD pipeline
+- [ ] Lisa: Create mockups
+- [ ] Sarah: Write product specs
+
+#work/meetings #planning`,
+        tags: ['work/meetings', 'planning'],
+        isPinned: false,
+        isArchived: false,
+        isTrashed: false,
+        createdAt: new Date(Date.now() - 172800000).toISOString(),
+        updatedAt: new Date(Date.now() - 172800000).toISOString(),
+      },
+      {
+        id: '4',
+        title: 'Reading List',
+        content: `# Books to Read
+
+## Fiction
+- The Midnight Library
+- Project Hail Mary
+- Tomorrow, and Tomorrow, and Tomorrow
+
+## Non-Fiction
+- Atomic Habits
+- The Creative Act
+- How to Take Smart Notes
+
+#personal/reading #books`,
+        tags: ['personal/reading', 'books'],
+        isPinned: false,
+        isArchived: false,
+        isTrashed: false,
+        createdAt: new Date(Date.now() - 259200000).toISOString(),
+        updatedAt: new Date(Date.now() - 259200000).toISOString(),
+      },
+      {
+        id: '5',
+        title: 'Grocery List',
+        content: `# Grocery List
+
+## Produce
+- Apples
+- Bananas
+- Spinach
+- Tomatoes
+
+## Dairy
+- Milk
+- Cheese
+- Yogurt
+
+## Pantry
+- Pasta
+- Rice
+- Olive oil
+
+#personal/shopping #groceries`,
+        tags: ['personal/shopping', 'groceries'],
+        isPinned: false,
+        isArchived: false,
+        isTrashed: false,
+        createdAt: new Date(Date.now() - 345600000).toISOString(),
+        updatedAt: new Date(Date.now() - 345600000).toISOString(),
+      },
+      {
+        id: '6',
+        title: 'Code Snippets',
+        content: `# Useful Code Snippets
+
+## React Hook - useLocalStorage
+\`\`\`javascript
+function useLocalStorage(key, initialValue) {
+  const [storedValue, setStoredValue] = useState(() => {
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
+    } catch (error) {
+      return initialValue;
+    }
+  });
+
+  const setValue = (value) => {
+    setStoredValue(value);
+    window.localStorage.setItem(key, JSON.stringify(value));
+  };
+
+  return [storedValue, setValue];
+}
+\`\`\`
+
+#code/snippets #javascript #react`,
+        tags: ['code/snippets', 'javascript', 'react'],
+        isPinned: false,
+        isArchived: false,
+        isTrashed: false,
+        createdAt: new Date(Date.now() - 432000000).toISOString(),
+        updatedAt: new Date(Date.now() - 432000000).toISOString(),
+      },
+      {
+        id: '7',
+        title: 'Travel Plans - Japan 2026',
+        content: `# Japan Trip Planning
+
+## Cities to Visit
+1. **Tokyo** (5 days)
+   - Shibuya
+   - Asakusa
+   - Akihabara
+
+2. **Kyoto** (4 days)
+   - Fushimi Inari
+   - Arashiyama Bamboo Grove
+   - Kinkaku-ji
+
+3. **Osaka** (2 days)
+   - Dotonbori
+   - Osaka Castle
+
+## Budget
+- Flights: $1200
+- Hotels: $100/night
+- Food: $50/day
+- Activities: $500
+
+#personal/travel #japan #planning`,
+        tags: ['personal/travel', 'japan', 'planning'],
+        isPinned: true,
+        isArchived: false,
+        isTrashed: false,
+        createdAt: new Date(Date.now() - 518400000).toISOString(),
+        updatedAt: new Date(Date.now() - 518400000).toISOString(),
+      },
+    ];
+
+    // Insert sample notes
     const stmt = this.db.prepare(`
-      INSERT INTO recordings (
-        id, title, filePath, duration, createdAt, tags, notes,
-        transcript, transcriptSegments, language, modelUsed
-      )
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO notes (id, title, content, tags, isPinned, isArchived, isTrashed, createdAt, updatedAt)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `);
+
+    for (const note of sampleNotes) {
+      stmt.run(
+        note.id,
+        note.title,
+        note.content,
+        JSON.stringify(note.tags),
+        note.isPinned ? 1 : 0,
+        note.isArchived ? 1 : 0,
+        note.isTrashed ? 1 : 0,
+        note.createdAt,
+        note.updatedAt
+      );
+    }
+  }
+
+  saveNote(note: Note): Note {
+    const stmt = this.db.prepare(`
+      INSERT INTO notes (id, title, content, tags, isPinned, isArchived, isTrashed, createdAt, updatedAt)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
     stmt.run(
-      recording.id,
-      recording.title,
-      recording.filePath,
-      recording.duration,
-      recording.createdAt,
-      recording.tags ? JSON.stringify(recording.tags) : null,
-      recording.notes,
-      recording.transcript,
-      recording.transcriptSegments ? JSON.stringify(recording.transcriptSegments) : null,
-      recording.language,
-      recording.modelUsed
+      note.id,
+      note.title,
+      note.content,
+      JSON.stringify(note.tags),
+      note.isPinned ? 1 : 0,
+      note.isArchived ? 1 : 0,
+      note.isTrashed ? 1 : 0,
+      note.createdAt,
+      note.updatedAt
     );
 
-    return recording;
+    return note;
   }
 
-  getRecordings(): Recording[] {
+  getNotes(): Note[] {
     const stmt = this.db.prepare(`
-      SELECT * FROM recordings ORDER BY createdAt DESC
+      SELECT * FROM notes WHERE isTrashed = 0 ORDER BY isPinned DESC, updatedAt DESC
     `);
 
     const rows = stmt.all() as any[];
-    return rows.map(this.deserializeRecording);
+    return rows.map(this.deserializeNote);
   }
 
-  getRecording(id: string): Recording | null {
+  getNote(id: string): Note | null {
     const stmt = this.db.prepare(`
-      SELECT * FROM recordings WHERE id = ?
+      SELECT * FROM notes WHERE id = ?
     `);
 
     const row = stmt.get(id) as any;
-    return row ? this.deserializeRecording(row) : null;
+    return row ? this.deserializeNote(row) : null;
   }
 
-  updateRecording(id: string, updates: Partial<Recording>): void {
-    const fields: string[] = [];
-    const values: any[] = [];
+  updateNote(id: string, updates: Partial<Note>): void {
+    const fields: string[] = ['updatedAt = ?'];
+    const values: any[] = [new Date().toISOString()];
 
     if (updates.title !== undefined) {
       fields.push('title = ?');
       values.push(updates.title);
     }
-    if (updates.notes !== undefined) {
-      fields.push('notes = ?');
-      values.push(updates.notes);
+    if (updates.content !== undefined) {
+      fields.push('content = ?');
+      values.push(updates.content);
     }
     if (updates.tags !== undefined) {
       fields.push('tags = ?');
       values.push(JSON.stringify(updates.tags));
     }
-    if (updates.transcript !== undefined) {
-      fields.push('transcript = ?');
-      values.push(updates.transcript);
+    if (updates.isPinned !== undefined) {
+      fields.push('isPinned = ?');
+      values.push(updates.isPinned ? 1 : 0);
     }
-    if (updates.transcriptSegments !== undefined) {
-      fields.push('transcriptSegments = ?');
-      values.push(JSON.stringify(updates.transcriptSegments));
+    if (updates.isArchived !== undefined) {
+      fields.push('isArchived = ?');
+      values.push(updates.isArchived ? 1 : 0);
     }
-
-    if (fields.length === 0) return;
+    if (updates.isTrashed !== undefined) {
+      fields.push('isTrashed = ?');
+      values.push(updates.isTrashed ? 1 : 0);
+    }
 
     values.push(id);
     const stmt = this.db.prepare(`
-      UPDATE recordings SET ${fields.join(', ')} WHERE id = ?
+      UPDATE notes SET ${fields.join(', ')} WHERE id = ?
     `);
 
     stmt.run(...values);
   }
 
-  deleteRecording(id: string): void {
-    const recording = this.getRecording(id);
-    if (recording) {
-      // Delete the audio file
-      if (fs.existsSync(recording.filePath)) {
-        fs.unlinkSync(recording.filePath);
-      }
-
-      // Delete from database
-      const stmt = this.db.prepare('DELETE FROM recordings WHERE id = ?');
-      stmt.run(id);
-    }
+  deleteNote(id: string): void {
+    const stmt = this.db.prepare('DELETE FROM notes WHERE id = ?');
+    stmt.run(id);
   }
 
-  searchRecordings(query: string): Recording[] {
+  searchNotes(query: string): Note[] {
     const searchPattern = `%${query}%`;
     const stmt = this.db.prepare(`
-      SELECT * FROM recordings
-      WHERE title LIKE ? OR notes LIKE ? OR transcript LIKE ?
-      ORDER BY createdAt DESC
+      SELECT * FROM notes
+      WHERE isTrashed = 0 AND (title LIKE ? OR content LIKE ?)
+      ORDER BY isPinned DESC, updatedAt DESC
     `);
 
-    const rows = stmt.all(searchPattern, searchPattern, searchPattern) as any[];
-    return rows.map(this.deserializeRecording);
+    const rows = stmt.all(searchPattern, searchPattern) as any[];
+    return rows.map(this.deserializeNote);
   }
 
-  private deserializeRecording(row: any): Recording {
+  getAllTags(): Tag[] {
+    const notes = this.getNotes();
+    const tagMap = new Map<string, number>();
+
+    notes.forEach(note => {
+      note.tags.forEach(tag => {
+        tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
+      });
+    });
+
+    return Array.from(tagMap.entries())
+      .map(([name, noteCount]) => ({ name, noteCount }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  getNotesByTag(tag: string): Note[] {
+    const allNotes = this.getNotes();
+    return allNotes.filter(note => note.tags.includes(tag));
+  }
+
+  private deserializeNote(row: any): Note {
     return {
       id: row.id,
       title: row.title,
-      filePath: row.filePath,
-      duration: row.duration,
+      content: row.content,
+      tags: row.tags ? JSON.parse(row.tags) : [],
+      isPinned: row.isPinned === 1,
+      isArchived: row.isArchived === 1,
+      isTrashed: row.isTrashed === 1,
       createdAt: row.createdAt,
-      tags: row.tags ? JSON.parse(row.tags) : undefined,
-      notes: row.notes,
-      transcript: row.transcript,
-      transcriptSegments: row.transcriptSegments ? JSON.parse(row.transcriptSegments) : undefined,
-      language: row.language,
-      modelUsed: row.modelUsed,
+      updatedAt: row.updatedAt,
     };
   }
 

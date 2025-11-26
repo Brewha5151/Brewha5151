@@ -1,7 +1,7 @@
 {
-  "name": "fourbolt",
+  "name": "bear-notes",
   "version": "1.0.0",
-  "description": "FourBolt - Cross-platform desktop application for audio recording and transcription",
+  "description": "Bear Notes - Beautiful markdown note-taking app with tags and hierarchy",
   "main": "dist/main/main.js",
   "scripts": {
     "dev": "concurrently \"npm run dev:main\" \"npm run dev:renderer\"",
@@ -17,22 +17,22 @@
     "package:linux": "npm run build && electron-builder --linux"
   },
   "keywords": [
-    "dictation",
-    "transcription",
-    "whisper",
-    "audio",
-    "recording",
-    "meeting"
+    "notes",
+    "markdown",
+    "bear",
+    "note-taking",
+    "tags",
+    "productivity"
   ],
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
     "better-sqlite3": "^9.2.2",
     "electron-store": "^8.1.0",
-    "openai": "^4.20.1",
     "uuid": "^9.0.1",
     "date-fns": "^3.0.0",
-    "lucide-react": "^0.294.0"
+    "lucide-react": "^0.294.0",
+    "marked": "^11.0.0"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.8",
@@ -40,6 +40,7 @@
     "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
     "@types/uuid": "^9.0.7",
+    "@types/marked": "^6.0.0",
     "@vitejs/plugin-react": "^4.2.1",
     "concurrently": "^8.2.2",
     "electron": "^28.1.0",
@@ -51,8 +52,8 @@
     "vite-plugin-electron": "^0.28.2"
   },
   "build": {
-    "appId": "com.fourbolt.app",
-    "productName": "FourBolt",
+    "appId": "com.bearnotes.app",
+    "productName": "Bear Notes",
     "directories": {
       "output": "release"
     },
@@ -78,7 +79,7 @@
         "AppImage",
         "deb"
       ],
-      "category": "Audio"
+      "category": "Utility"
     }
   }
 }

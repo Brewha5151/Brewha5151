@@ -1,26 +1,23 @@
 import { app, BrowserWindow, ipcMain, globalShortcut } from 'electron';
 import path from 'path';
-import { AudioRecorder } from './services/AudioRecorder';
-import { DatabaseService } from './services/DatabaseService';
-import { TranscriptionService } from './services/TranscriptionService';
+import { DatabaseService, Note } from './services/DatabaseService';
 
 let mainWindow: BrowserWindow | null = null;
-let audioRecorder: AudioRecorder | null = null;
 let databaseService: DatabaseService | null = null;
-let transcriptionService: TranscriptionService | null = null;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 800,
-    minWidth: 800,
-    minHeight: 600,
+    width: 1400,
+    height: 900,
+    minWidth: 1000,
+    minHeight: 700,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
       preload: path.join(__dirname, 'preload.js'),
     },
     titleBarStyle: 'hiddenInset',
+    backgroundColor: '#ffffff',
     show: false,
   });
 
@@ -42,16 +39,18 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
-  // Initialize services
+  // Initialize database service
   databaseService = new DatabaseService();
-  audioRecorder = new AudioRecorder();
-  transcriptionService = new TranscriptionService();
 
   createWindow();
 
   // Register global shortcuts
-  globalShortcut.register('CommandOrControl+Shift+R', () => {
-    mainWindow?.webContents.send('toggle-recording');
+  globalShortcut.register('CommandOrControl+N', () => {
+    mainWindow?.webContents.send('new-note');
+  });
+
+  globalShortcut.register('CommandOrControl+F', () => {
+    mainWindow?.webContents.send('focus-search');
   });
 
   app.on('activate', () => {
@@ -69,130 +68,77 @@ app.on('window-all-closed', () => {
 
 app.on('will-quit', () => {
   globalShortcut.unregisterAll();
+  databaseService?.close();
 });
 
-// IPC Handlers
-ipcMain.handle('start-recording', async (event, deviceId: string) => {
+// IPC Handlers for Notes
+ipcMain.handle('get-notes', async () => {
   try {
-    const result = await audioRecorder?.startRecording(deviceId);
+    const notes = databaseService?.getNotes();
+    return { success: true, data: notes };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+});
+
+ipcMain.handle('get-note', async (event, id: string) => {
+  try {
+    const note = databaseService?.getNote(id);
+    return { success: true, data: note };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+});
+
+ipcMain.handle('save-note', async (event, note: Note) => {
+  try {
+    const result = databaseService?.saveNote(note);
     return { success: true, data: result };
   } catch (error: any) {
     return { success: false, error: error.message };
   }
 });
 
-ipcMain.handle('stop-recording', async () => {
+ipcMain.handle('update-note', async (event, id: string, updates: Partial<Note>) => {
   try {
-    const result = await audioRecorder?.stopRecording();
-    return { success: true, data: result };
-  } catch (error: any) {
-    return { success: false, error: error.message };
-  }
-});
-
-ipcMain.handle('pause-recording', async () => {
-  try {
-    await audioRecorder?.pauseRecording();
+    databaseService?.updateNote(id, updates);
     return { success: true };
   } catch (error: any) {
     return { success: false, error: error.message };
   }
 });
 
-ipcMain.handle('resume-recording', async () => {
+ipcMain.handle('delete-note', async (event, id: string) => {
   try {
-    await audioRecorder?.resumeRecording();
+    databaseService?.deleteNote(id);
     return { success: true };
   } catch (error: any) {
     return { success: false, error: error.message };
   }
 });
 
-ipcMain.handle('get-audio-devices', async () => {
+ipcMain.handle('search-notes', async (event, query: string) => {
   try {
-    // This will be implemented in the renderer process using navigator.mediaDevices
-    return { success: true };
-  } catch (error: any) {
-    return { success: false, error: error.message };
-  }
-});
-
-ipcMain.handle('transcribe-audio', async (event, audioPath: string, options: any) => {
-  try {
-    const result = await transcriptionService?.transcribe(audioPath, options);
-    return { success: true, data: result };
-  } catch (error: any) {
-    return { success: false, error: error.message };
-  }
-});
-
-ipcMain.handle('save-recording', async (event, recordingData: any) => {
-  try {
-    const result = await databaseService?.saveRecording(recordingData);
-    return { success: true, data: result };
-  } catch (error: any) {
-    return { success: false, error: error.message };
-  }
-});
-
-ipcMain.handle('get-recordings', async () => {
-  try {
-    const recordings = await databaseService?.getRecordings();
-    return { success: true, data: recordings };
-  } catch (error: any) {
-    return { success: false, error: error.message };
-  }
-});
-
-ipcMain.handle('get-recording', async (event, id: string) => {
-  try {
-    const recording = await databaseService?.getRecording(id);
-    return { success: true, data: recording };
-  } catch (error: any) {
-    return { success: false, error: error.message };
-  }
-});
-
-ipcMain.handle('delete-recording', async (event, id: string) => {
-  try {
-    await databaseService?.deleteRecording(id);
-    return { success: true };
-  } catch (error: any) {
-    return { success: false, error: error.message };
-  }
-});
-
-ipcMain.handle('search-recordings', async (event, query: string) => {
-  try {
-    const results = await databaseService?.searchRecordings(query);
+    const results = databaseService?.searchNotes(query);
     return { success: true, data: results };
   } catch (error: any) {
     return { success: false, error: error.message };
   }
 });
 
-ipcMain.handle('export-transcript', async (event, recordingId: string, format: string) => {
+ipcMain.handle('get-all-tags', async () => {
   try {
-    // Export functionality will be implemented
-    return { success: true };
+    const tags = databaseService?.getAllTags();
+    return { success: true, data: tags };
   } catch (error: any) {
     return { success: false, error: error.message };
   }
 });
 
-ipcMain.handle('get-settings', async () => {
+ipcMain.handle('get-notes-by-tag', async (event, tag: string) => {
   try {
-    // Settings will be implemented using electron-store
-    return { success: true, data: {} };
-  } catch (error: any) {
-    return { success: false, error: error.message };
-  }
-});
-
-ipcMain.handle('save-settings', async (event, settings: any) => {
-  try {
-    // Settings will be implemented using electron-store
-    return { success: true };
+    const notes = databaseService?.getNotesByTag(tag);
+    return { success: true, data: notes };
   } catch (error: any) {
     return { success: false, error: error.message };
   }
